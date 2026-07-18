@@ -33,7 +33,6 @@ export const Header: React.FC<HeaderProps> = ({
         {/* Logo */}
         <div className="header-logo" onClick={() => handleNavItemClick('home')}>
           <div className="logo-line">DIPU</div>
-          <div className="logo-line">SARDAR</div>
         </div>
 
         {/* Desktop Navigation */}

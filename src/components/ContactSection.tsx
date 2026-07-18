@@ -32,9 +32,9 @@ export const ContactSection: React.FC = () => {
           
           <div className="info-bottom">
             <div className="contact-details-list">
-              <a href="mailto:hello@dipusardar.com" className="contact-detail-item mail-link">
+              <a href="mailto:dipusardar.dev@gmail.com" className="contact-detail-item mail-link">
                 <Mail size={18} className="detail-icon" />
-                <span>hello@dipusardar.com</span>
+                <span>dipusardar.dev@gmail.com</span>
               </a>
               <div className="contact-detail-item">
                 <span className="detail-label">LOCATION:</span>
@@ -43,11 +43,12 @@ export const ContactSection: React.FC = () => {
             </div>
 
             <div className="contact-social-icons">
+              {/* GitHub */}
               <a 
-                href="https://github.com/dipusardar" 
+                href="https://github.com/dipu-sardar" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="social-icon-btn" 
+                className="social-icon-btn social-github" 
                 aria-label="GitHub"
               >
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: '20px', height: '20px' }}>
@@ -55,17 +56,70 @@ export const ContactSection: React.FC = () => {
                   <path d="M9 18c-4.51 2-5-2-7-2" />
                 </svg>
               </a>
+
+              {/* LinkedIn */}
               <a 
-                href="https://linkedin.com/in/dipusardar" 
+                href="https://www.linkedin.com/in/dipu-sardar-1b6a07321/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="social-icon-btn" 
+                className="social-icon-btn social-linkedin" 
                 aria-label="LinkedIn"
               >
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: '20px', height: '20px' }}>
                   <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
                   <rect width="4" height="12" x="2" y="9" rx="1" />
                   <circle cx="4" cy="4" r="2" />
+                </svg>
+              </a>
+
+              {/* Facebook */}
+              <a 
+                href="https://www.facebook.com/profile.php?id=61587013530024" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="social-icon-btn social-facebook" 
+                aria-label="Facebook"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: '20px', height: '20px' }}>
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                </svg>
+              </a>
+
+              {/* Instagram */}
+              <a 
+                href="https://www.instagram.com/xeedipu/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="social-icon-btn social-instagram" 
+                aria-label="Instagram"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: '20px', height: '20px' }}>
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                </svg>
+              </a>
+
+              {/* Mail */}
+              <a 
+                href="mailto:dipusardar.dev@gmail.com" 
+                className="social-icon-btn social-mail" 
+                aria-label="Mail"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: '20px', height: '20px' }}>
+                  <rect width="20" height="16" x="2" y="4" rx="2" />
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                </svg>
+              </a>
+
+              {/* Call */}
+              <a 
+                href="tel:+8801333655039" 
+                className="social-icon-btn social-call" 
+                aria-label="Call"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: '20px', height: '20px' }}>
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.1 6.1l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
                 </svg>
               </a>
             </div>

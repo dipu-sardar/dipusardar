@@ -25,11 +25,11 @@
 }
 
 .logo-line {
-  font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: 1.15rem;
-  line-height: 0.95;
-  letter-spacing: -0.01em;
+  font-family: 'Elsie Swash Caps', serif;
+  font-weight: 900;
+  font-size: 1.3rem;
+  line-height: 1;
+  letter-spacing: 0.02em;
   color: var(--color-text-primary);
 }
 

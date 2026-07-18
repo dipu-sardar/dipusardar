@@ -1,6 +1,6 @@
 import React from 'react';
 import './Hero.css';
-import editorialManImg from '../assets/editorial_man.png';
+import heroImg from '../assets/hero.jpg';
 
 export const Hero: React.FC = () => {
   return (
@@ -24,7 +24,7 @@ export const Hero: React.FC = () => {
               RESUME
             </button>
             <a 
-              href="https://github.com/dipusardar" 
+              href="https://github.com/dipu-sardar" 
               target="_blank" 
               rel="noopener noreferrer"
               className="hero-btn secondary-btn"
@@ -32,7 +32,7 @@ export const Hero: React.FC = () => {
               GITHUB
             </a>
             <a 
-              href="mailto:hello@dipusardar.com" 
+              href="mailto:dipusardar.dev@gmail.com" 
               className="hero-btn secondary-btn"
             >
               MAIL
@@ -42,7 +42,7 @@ export const Hero: React.FC = () => {
 
         {/* Right Side: One Picture */}
         <div className="hero-image-card-simple">
-          <img src={editorialManImg} alt="Dipu Sardar Portfolio Banner" className="hero-single-img" />
+          <img src={heroImg} alt="Dipu Sardar Portfolio Banner" className="hero-single-img" />
         </div>
       </div>
     </section>

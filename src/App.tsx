@@ -113,7 +113,7 @@ function App() {
         onNavClick={handleScrollToSection}
         onCallClick={() => {
           showToast('Opening dialer for call contact...');
-          window.location.href = 'tel:+8801700000000';
+          window.location.href = 'tel:+8801333655039';
         }}
       />
 
@@ -148,8 +148,8 @@ function App() {
             <div className="footer-link-col">
               <h4>CONNECT</h4>
               <button onClick={() => handleScrollToSection('contact')}>Contact Us</button>
-              <button onClick={() => showToast('GitHub profile: github.com/dipusardar')}>GitHub</button>
-              <button onClick={() => showToast('LinkedIn profile: linkedin.com/in/dipusardar')}>LinkedIn</button>
+              <button onClick={() => window.open('https://github.com/dipu-sardar', '_blank')}>GitHub</button>
+              <button onClick={() => window.open('https://www.linkedin.com/in/dipu-sardar-1b6a07321/', '_blank')}>LinkedIn</button>
             </div>
             <div className="footer-link-col">
               <h4>LEGAL</h4>
