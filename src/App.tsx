@@ -6,6 +6,7 @@ import { CartDrawer } from './components/CartDrawer';
 import { ContactModal } from './components/ContactModal';
 import { SearchModal } from './components/SearchModal';
 import { ContactSection } from './components/ContactSection';
+import { InfiniteCarousel } from './components/InfiniteCarousel';
 import type { Product, CartItem } from './types';
 import './App.css';
 
@@ -126,6 +127,9 @@ function App() {
         onToggleWishlist={handleToggleWishlist}
         wishlistIds={wishlist.map((w) => w.id)}
       />
+
+      {/* Infinite Scrolling Carousel */}
+      <InfiniteCarousel />
 
       {/* Aesthetic Contact Section */}
       <ContactSection />

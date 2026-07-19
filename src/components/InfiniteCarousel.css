@@ -1,0 +1,211 @@
+/* ── InfiniteCarousel.css ────────────────────────────────────────────────── */
+
+/* Custom properties used inside Card via inline style */
+:root {
+  --carousel-card-w: 220px;
+  --carousel-card-h: 290px;
+  --carousel-gap: 20px;
+  --carousel-art-h: 160px;
+}
+
+/* ── Section wrapper ─────────────────────────────────────────────────── */
+.carousel-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  overflow: hidden; /* hide the overflow that edge-fade doesn't reach */
+}
+
+/* ── Header ──────────────────────────────────────────────────────────── */
+.carousel-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 8px;
+  align-items: center;
+  text-align: center;
+}
+
+.carousel-kicker {
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: var(--color-text-muted);
+}
+
+.carousel-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--color-text-primary);
+  line-height: 1;
+}
+
+.carousel-heading-accent {
+  color: var(--color-accent-orange);
+}
+
+/* ── Mask wrapper ───────────────────────────────────────────────────── */
+.carousel-mask-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* ── Track container: clip the overflow ─────────────────────────────── */
+.carousel-track-container {
+  width: 100%;
+  overflow: hidden;
+  cursor: default;
+}
+
+/* ── Track: horizontal flex of cards ────────────────────────────────── */
+.carousel-track {
+  display: flex;
+  gap: var(--carousel-gap);
+  will-change: transform;
+  padding: 20px 0 28px; /* vertical breathing room for hover lift */
+}
+
+/* ── Card ────────────────────────────────────────────────────────────── */
+.carousel-card {
+  flex: 0 0 var(--carousel-card-w);
+  width: var(--carousel-card-w);
+  height: var(--carousel-card-h);
+  border-radius: 20px;
+  background: var(--color-bg-dark, #0f0f11);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.18),
+    0 1px 0 rgba(255, 255, 255, 0.06) inset;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  position: relative;
+}
+
+/* ── Art area (top 55% of card) ──────────────────────────────────────── */
+.card-art-area {
+  position: relative;
+  width: 100%;
+  height: var(--carousel-art-h);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Blurred tinted background using the card's accent colour */
+.card-art-bg {
+  position: absolute;
+  inset: 0;
+  background: var(--card-accent, #e05e35);
+  opacity: 0.18;
+}
+
+/* Radial glow from the accent colour */
+.card-art-area::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 80% 80% at 50% 60%,
+    color-mix(in srgb, var(--card-accent, #e05e35) 40%, transparent),
+    transparent 70%
+  );
+  z-index: 0;
+}
+
+/* Grid-line overlay for a "data viz" feel */
+.card-art-area::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+  z-index: 0;
+}
+
+.card-icon {
+  position: relative;
+  z-index: 1;
+  font-size: 3rem;
+  line-height: 1;
+  color: #fff;
+  filter: drop-shadow(0 0 20px var(--card-accent, #e05e35));
+  transition: transform 0.3s ease;
+}
+
+.carousel-card:hover .card-icon {
+  transform: scale(1.15) rotate(-5deg);
+}
+
+.card-year {
+  position: absolute;
+  bottom: 10px;
+  right: 14px;
+  z-index: 2;
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* ── Card body (bottom info) ─────────────────────────────────────────── */
+.card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  padding: 14px 16px 16px;
+  background: var(--color-bg-dark, #0f0f11);
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.card-tag {
+  font-family: var(--font-heading);
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--card-accent, #e05e35);
+  text-transform: uppercase;
+}
+
+.card-title {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: #fff;
+  line-height: 1.1;
+}
+
+.card-subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.4;
+  margin-top: 2px;
+}
+
+/* ── Responsive tweaks ───────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  :root {
+    --carousel-card-w: 180px;
+    --carousel-card-h: 250px;
+    --carousel-art-h: 130px;
+  }
+
+  .carousel-heading {
+    font-size: 2rem;
+  }
+}
