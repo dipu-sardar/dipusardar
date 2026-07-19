@@ -7,6 +7,7 @@ import { ContactModal } from './components/ContactModal';
 import { SearchModal } from './components/SearchModal';
 import { ContactSection } from './components/ContactSection';
 import { InfiniteCarousel } from './components/InfiniteCarousel';
+import { About } from './components/About';
 import type { Product, CartItem } from './types';
 import './App.css';
 
@@ -87,7 +88,7 @@ function App() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
-    if (sectionId === 'projects' || sectionId === 'contact') {
+    if (['projects', 'contact', 'about'].includes(sectionId)) {
       const element = document.getElementById(sectionId);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
@@ -127,6 +128,9 @@ function App() {
         onToggleWishlist={handleToggleWishlist}
         wishlistIds={wishlist.map((w) => w.id)}
       />
+
+      {/* About Section */}
+      <About />
 
       {/* Infinite Scrolling Carousel */}
       <InfiniteCarousel />
