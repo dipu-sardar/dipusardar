@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Menu, X, Home, Briefcase, User, Cpu, BookOpen, Mail, Phone } from 'lucide-react';
 import './Header.css';
 
 interface HeaderProps {
@@ -12,14 +12,28 @@ export const Header: React.FC<HeaderProps> = ({
   onCallClick
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navItems = [
-    { label: 'HOME', section: 'home' },
-    { label: 'PROJECTS', section: 'projects' },
-    { label: 'ABOUT', section: 'about' },
-    { label: 'SKILLS', section: 'skills' },
-    { label: 'BLOGS', section: 'blogs' },
-    { label: 'CONTACT', section: 'contact' }
+    { label: 'HOME', section: 'home', icon: Home },
+    { label: 'PROJECTS', section: 'projects', icon: Briefcase },
+    { label: 'ABOUT', section: 'about', icon: User },
+    { label: 'SKILLS', section: 'skills', icon: Cpu },
+    { label: 'BLOGS', section: 'blogs', icon: BookOpen },
+    { label: 'CONTACT', section: 'contact', icon: Mail }
   ];
 
   const handleNavItemClick = (section: string) => {
@@ -28,7 +42,7 @@ export const Header: React.FC<HeaderProps> = ({
   };
 
   return (
-    <header className="site-header">
+    <header className={`site-header ${scrolled ? 'scrolled' : ''}`}>
       <div className="header-inner">
         {/* Logo */}
         <div className="header-logo" onClick={() => handleNavItemClick('home')}>
@@ -37,17 +51,27 @@ export const Header: React.FC<HeaderProps> = ({
 
         {/* Desktop Navigation */}
         <nav className="desktop-nav">
-          {navItems.map((item) => (
-            <button
-              key={item.label}
-              className="nav-link"
-              onClick={() => handleNavItemClick(item.section)}
-            >
-              {item.label}
-            </button>
-          ))}
-          <button className="nav-btn-call" onClick={onCallClick}>
-            CALL
+          {navItems.map((item) => {
+            const IconComponent = item.icon;
+            return (
+              <button
+                key={item.label}
+                className="nav-link-btn"
+                onClick={() => handleNavItemClick(item.section)}
+                title={item.label}
+              >
+                <span className="nav-text">{item.label}</span>
+                <span className="nav-icon"><IconComponent size={18} /></span>
+              </button>
+            );
+          })}
+          <button 
+            className="nav-btn-call-btn" 
+            onClick={onCallClick}
+            title="CALL"
+          >
+            <span className="nav-text">CALL</span>
+            <span className="nav-icon"><Phone size={18} /></span>
           </button>
         </nav>
 
