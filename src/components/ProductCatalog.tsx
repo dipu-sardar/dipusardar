@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Product } from '../types';
-import { Heart, ShoppingBag, Eye, ExternalLink } from 'lucide-react';
+import { Eye, ExternalLink } from 'lucide-react';
 import './ProductCatalog.css';
 
 // Import local assets
@@ -9,10 +9,7 @@ import dsCanvasImg from '../assets/ds_canvas.png';
 import editorialManImg from '../assets/editorial_man.png';
 
 interface ProductCatalogProps {
-  onAddToCart: (product: Product) => void;
-  onToggleWishlist: (product: Product) => void;
-  wishlistIds: string[];
-  onSelectProduct: (product: Product) => void; // Added for project details popup
+  onSelectProduct: (product: Product) => void;
 }
 
 export const PRODUCTS: Product[] = [
@@ -79,9 +76,6 @@ Successfully deployed on quadcopters for automated search-and-rescue and technic
 ];
 
 export const ProductCatalog: React.FC<ProductCatalogProps> = ({
-  onAddToCart,
-  onToggleWishlist,
-  wishlistIds,
   onSelectProduct
 }) => {
   return (

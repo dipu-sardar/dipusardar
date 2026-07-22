@@ -15,7 +15,6 @@ import './App.css';
 
 function App() {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
-  const [wishlist, setWishlist] = useState<Product[]>([]);
   const [cartOpen, setCartOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -67,19 +66,6 @@ function App() {
     );
   };
 
-  const handleToggleWishlist = (product: Product) => {
-    setWishlist((prevWishlist) => {
-      const exists = prevWishlist.some((item) => item.id === product.id);
-      if (exists) {
-        showToast(`Removed "${product.name}" from your wishlist.`);
-        return prevWishlist.filter((item) => item.id !== product.id);
-      } else {
-        showToast(`Added "${product.name}" to your wishlist.`);
-        return [...prevWishlist, product];
-      }
-    });
-  };
-
   const handleCheckout = () => {
     alert('Thank you! Project inquiry submitted successfully. I will get in touch shortly to discuss collaboration.');
     setCartItems([]);
@@ -128,9 +114,6 @@ function App() {
 
       {/* Product Catalog Collections */}
       <ProductCatalog
-        onAddToCart={handleAddToCart}
-        onToggleWishlist={handleToggleWishlist}
-        wishlistIds={wishlist.map((w) => w.id)}
         onSelectProduct={setSelectedProject}
       />
 
