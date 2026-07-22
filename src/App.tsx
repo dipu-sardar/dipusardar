@@ -8,6 +8,7 @@ import { SearchModal } from './components/SearchModal';
 import { ContactSection } from './components/ContactSection';
 import { InfiniteCarousel } from './components/InfiniteCarousel';
 import { About } from './components/About';
+import { MouseClickEffect } from './components/MouseClickEffect';
 import type { Product, CartItem } from './types';
 import './App.css';
 
@@ -103,6 +104,7 @@ function App() {
 
   return (
     <>
+      <MouseClickEffect />
       {/* Toast Notification */}
       {toastMessage && (
         <div className="toast-notification fade-in">
