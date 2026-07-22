@@ -1,0 +1,301 @@
+.project-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(15, 15, 17, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.project-modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 680px;
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-lg);
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: projectModalPop 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes projectModalPop {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Close button */
+.project-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: rgba(15, 15, 17, 0.5);
+  color: #fff;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+  z-index: 10;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+}
+
+.project-modal-close:hover {
+  background-color: var(--color-accent-orange);
+  transform: rotate(90deg);
+}
+
+/* Banner image */
+.project-modal-hero {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  background-color: var(--color-bg-page);
+  overflow: hidden;
+}
+
+.project-modal-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.project-modal-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.4) 100%);
+  pointer-events: none;
+}
+
+/* Modal Body content */
+.project-modal-body {
+  padding: 32px 40px;
+  overflow-y: auto;
+  flex: 1;
+  text-align: left;
+}
+
+.project-modal-meta {
+  margin-bottom: 8px;
+}
+
+.project-modal-category {
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: var(--color-accent-orange);
+  text-transform: uppercase;
+}
+
+.project-modal-title {
+  font-family: var(--font-heading);
+  font-size: 1.85rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  margin-bottom: 12px;
+}
+
+.project-modal-short-desc {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin-bottom: 24px;
+}
+
+/* Tech Badges */
+.project-modal-tech-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.tech-section-title {
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.project-modal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech-tag {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  background-color: var(--color-bg-page);
+  color: var(--color-text-secondary);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border);
+}
+
+.project-modal-divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-border);
+  margin: 24px 0;
+}
+
+/* Documentation Content */
+.project-modal-documentation {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.doc-section-title {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+}
+
+.doc-content-body {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--color-text-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal-doc-heading {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--color-text-primary);
+  margin-top: 8px;
+  letter-spacing: -0.01em;
+}
+
+.modal-doc-para {
+  margin: 0;
+}
+
+.modal-doc-list {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+}
+
+.modal-doc-list li {
+  list-style-type: square;
+  color: var(--color-text-secondary);
+}
+
+.modal-doc-list li::marker {
+  color: var(--color-accent-orange);
+}
+
+.modal-doc-list li strong {
+  color: var(--color-text-primary);
+}
+
+/* Action buttons at bottom */
+.project-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.project-modal-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  transition: var(--transition-smooth);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  border: 1px solid var(--color-border);
+}
+
+.project-modal-action-btn.live-btn {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-light);
+  border-color: var(--color-bg-dark);
+}
+
+.project-modal-action-btn.live-btn:hover {
+  background-color: var(--color-accent-orange);
+  border-color: var(--color-accent-orange);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.project-modal-action-btn.github-btn {
+  background-color: var(--color-bg-page);
+  color: var(--color-text-primary);
+}
+
+.project-modal-action-btn.github-btn:hover {
+  background-color: var(--color-bg-gray);
+  border-color: var(--color-text-secondary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Responsive modal styling */
+@media (max-width: 768px) {
+  .project-modal-backdrop {
+    padding: 10px;
+  }
+  
+  .project-modal-card {
+    max-height: 95vh;
+  }
+  
+  .project-modal-hero {
+    height: 180px;
+  }
+  
+  .project-modal-body {
+    padding: 24px;
+  }
+  
+  .project-modal-title {
+    font-size: 1.5rem;
+  }
+}

@@ -9,6 +9,7 @@ import { ContactSection } from './components/ContactSection';
 import { InfiniteCarousel } from './components/InfiniteCarousel';
 import { About } from './components/About';
 import { MouseClickEffect } from './components/MouseClickEffect';
+import { ProjectModal } from './components/ProjectModal';
 import type { Product, CartItem } from './types';
 import './App.css';
 
@@ -19,6 +20,7 @@ function App() {
   const [contactOpen, setContactOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
+  const [selectedProject, setSelectedProject] = useState<Product | null>(null);
 
   // Show a premium floating toast message
   const showToast = (message: string) => {
@@ -129,6 +131,7 @@ function App() {
         onAddToCart={handleAddToCart}
         onToggleWishlist={handleToggleWishlist}
         wishlistIds={wishlist.map((w) => w.id)}
+        onSelectProduct={setSelectedProject}
       />
 
       {/* About Section */}
@@ -192,6 +195,12 @@ function App() {
         isOpen={searchOpen}
         onClose={() => setSearchOpen(false)}
         onAddToCart={handleAddToCart}
+      />
+
+      <ProjectModal
+        project={selectedProject}
+        isOpen={selectedProject !== null}
+        onClose={() => setSelectedProject(null)}
       />
     </>
   );

@@ -5,6 +5,10 @@ export interface Product {
   image: string;
   category: string;
   description: string;
+  liveLink?: string;
+  githubLink?: string;
+  documentation?: string;
+  technologies?: string[];
 }
 
 export interface CartItem {
