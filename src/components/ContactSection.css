@@ -309,6 +309,7 @@
 @media (max-width: 1024px) {
   .contact-card-grid {
     grid-template-columns: 1fr;
+    min-height: auto;
   }
   
   .contact-info-panel {
@@ -325,9 +326,34 @@
   .contact-details-list {
     margin-top: 24px;
   }
+
+  .contact-detail-item {
+    flex-wrap: wrap;
+    word-break: break-all;
+  }
   
   .contact-inline-submit {
     width: 100%;
     align-self: stretch;
+  }
+
+  .contact-social-icons {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .social-icon-btn {
+    width: 38px;
+    height: 38px;
+  }
+  
+  .success-desc {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-display-title {
+    font-size: 1.6rem;
   }
 }
