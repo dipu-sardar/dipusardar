@@ -5,6 +5,7 @@ import './ProductCatalog.css';
 
 // Import local assets
 import assignmentPlannerImg from '../assets/assignment_planner.png';
+import assignmentPlannerVideo from '../assets/project_1.mov';
 import dsCanvasImg from '../assets/ds_canvas.png';
 import editorialManImg from '../assets/editorial_man.png';
 
@@ -18,6 +19,7 @@ export const PRODUCTS: Product[] = [
     name: 'Assignment Planner',
     price: 78,
     image: assignmentPlannerImg,
+    video: assignmentPlannerVideo,
     category: 'PRODUCTIVITY / EDTECH',
     description: 'An intelligent academic management portal designed for BSc CSE students to track, organize, and submit assignments and class tests.',
     liveLink: 'https://assignment-planner-phi.vercel.app',
@@ -98,7 +100,19 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({
               style={{ cursor: 'pointer' }}
             >
               <div className="product-image-wrapper">
-                <img src={product.image} alt={product.name} className="product-image" />
+                {product.video ? (
+                  <video 
+                    src={product.video} 
+                    autoPlay 
+                    loop 
+                    muted 
+                    playsInline 
+                    className="product-image"
+                    style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+                  />
+                ) : (
+                  <img src={product.image} alt={product.name} className="product-image" />
+                )}
                 <div className="product-actions-overlay">
                   <button 
                     className="product-action-btn view-details-btn"

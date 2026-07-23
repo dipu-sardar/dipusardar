@@ -71,7 +71,19 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onC
 
         {/* Project Image Banner */}
         <div className="project-modal-hero">
-          <img src={project.image} alt={project.name} className="project-modal-img" />
+          {project.video ? (
+            <video 
+              src={project.video} 
+              autoPlay 
+              loop 
+              muted 
+              playsInline 
+              className="project-modal-img"
+              style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+            />
+          ) : (
+            <img src={project.image} alt={project.name} className="project-modal-img" />
+          )}
           <div className="project-modal-gradient"></div>
         </div>
 
