@@ -7,11 +7,48 @@ export const ContactSection: React.FC = () => {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name || !email || !message) return;
-    setSubmitted(true);
+    if (!name.trim() || !email.trim() || !message.trim()) {
+      setErrorMsg('Please fill in all fields.');
+      return;
+    }
+
+    setLoading(true);
+    setErrorMsg(null);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: name.trim(),
+          email: email.trim(),
+          message: message.trim(),
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setSubmitted(true);
+        setName('');
+        setEmail('');
+        setMessage('');
+      } else {
+        setErrorMsg(data.error || 'Something went wrong. Please try again.');
+      }
+    } catch (err: any) {
+      console.error(err);
+      setErrorMsg('Network error. Please check your connection and try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -160,10 +197,15 @@ export const ContactSection: React.FC = () => {
                   className="inline-form-textarea"
                 ></textarea>
               </div>
-              <button type="submit" className="contact-inline-submit">
-                <span>SEND MESSAGE</span>
+              <button type="submit" disabled={loading} className="contact-inline-submit" style={{ opacity: loading ? 0.7 : 1, cursor: loading ? 'not-allowed' : 'pointer' }}>
+                <span>{loading ? 'SENDING...' : 'SEND MESSAGE'}</span>
                 <Send size={14} className="send-icon" />
               </button>
+              {errorMsg && (
+                <div className="contact-inline-error">
+                  {errorMsg}
+                </div>
+              )}
             </form>
           ) : (
             <div className="contact-inline-success fade-in">

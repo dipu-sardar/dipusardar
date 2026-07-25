@@ -357,3 +357,18 @@
     font-size: 1.6rem;
   }
 }
+
+/* Inline Error State */
+.contact-inline-error {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: #e03535;
+  background-color: rgba(224, 53, 53, 0.08);
+  border-left: 3px solid #e03535;
+  padding: 12px 16px;
+  border-radius: 4px;
+  margin-top: 16px;
+  line-height: 1.4;
+}
+
