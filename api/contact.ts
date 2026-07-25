@@ -64,10 +64,10 @@ export default async function handler(req: any, res: any) {
             
             <!-- Body Content -->
             <div style="padding: 30px; color: #0f0f11;">
-              <p style="font-size: 16px; font-weight: 600; margin-top: 0;">হ্যালো ${cleanName},</p>
+              <p style="font-size: 16px; font-weight: 600; margin-top: 0;">Hello ${cleanName},</p>
               
               <p style="font-size: 15px; line-height: 1.6; color: #333;">
-                আমার পোর্টফোলিওতে মেসেজ পাঠানোর জন্য আপনাকে ধন্যবাদ। আমি আপনার মেসেজটি পেয়েছি এবং শীঘ্রই আপনার দেওয়া ইমেইলে (<a href="mailto:${cleanEmail}" style="color: #e05e35; text-decoration: none; font-weight: 500;">${cleanEmail}</a>) যোগাযোগ করব।
+                Thank you for reaching out through my portfolio. I have received your message and will get back to you shortly at <a href="mailto:${cleanEmail}" style="color: #e05e35; text-decoration: none; font-weight: 500;">${cleanEmail}</a>.
               </p>
               
               <!-- Message Quote -->
@@ -76,8 +76,8 @@ export default async function handler(req: any, res: any) {
               </div>
               
               <p style="font-size: 14px; line-height: 1.5; color: #666; margin-bottom: 0;">
-                বিনীত,<br/>
-                <strong>দীপু সরদার</strong><br/>
+                Best regards,<br/>
+                <strong>Dipu Sardar</strong><br/>
                 <span style="font-size: 12px;">Machine Learning Engineer</span>
               </p>
             </div>
