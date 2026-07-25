@@ -1,503 +1,481 @@
-/* ── About.css  ── Spacious editorial redesign ─────────────────────────── */
+/* ==========================================================================
+   ABOUT SECTION REDESIGN — COMPACT 3D MINI-FOLDER WIDGETS
+   (MATCHED TO WEBSITE SIGNATURE COLOR SYSTEM & INTERACTIVE TIMELINE UI)
+   ========================================================================== */
 
-/* ═══════════════════════════════
-   SECTION
-═══════════════════════════════ */
-.ab-section {
+.ab-mini-folder-section {
   width: 100%;
+  padding: 80px 0 60px;
   display: flex;
   flex-direction: column;
-  gap: 56px;
-  padding: 16px 0 24px;
+  align-items: center;
+  gap: 48px;
+  position: relative;
 }
 
-/* ═══════════════════════════════
-   1. CENTERED HEADER (mirrors .catalog-header)
-═══════════════════════════════ */
-.ab-hero-block {
+/* --------------------------------------------------------------------------
+   1. SECTION HEADER
+   -------------------------------------------------------------------------- */
+.ab-mini-header {
   text-align: center;
-  max-width: 650px;
+  max-width: 680px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 0;
-  padding: 32px 0 8px;
+  align-items: center;
+  gap: 12px;
 }
 
-/* mirrors .catalog-subtitle */
-.ab-kicker {
-  font-family: var(--font-heading);
-  font-size: 0.85rem;
-  font-weight: 700;
+.ab-mini-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 50px;
+  background: rgba(224, 94, 53, 0.1);
+  border: 1px solid rgba(224, 94, 53, 0.25);
+  color: var(--color-accent-orange, #e05e35);
+  font-family: var(--font-heading, sans-serif);
+  font-size: 0.75rem;
+  font-weight: 800;
   letter-spacing: 0.15em;
-  color: var(--color-accent-orange);
-  margin-bottom: 12px;
-}
-
-/* mirrors .catalog-title */
-.ab-mega-title {
-  font-family: var(--font-heading);
-  font-size: clamp(2rem, 4vw, 2.75rem);
-  font-weight: 800;
-  color: var(--color-text-primary);
-  margin-bottom: 20px;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-}
-
-/* mirrors .catalog-intro */
-.ab-mega-sub {
-  font-family: var(--font-sans);
-  font-size: 1rem;
-  line-height: 1.55;
-  color: var(--color-text-secondary);
-}
-
-/* ═══════════════════════════════
-   HORIZONTAL RULE
-═══════════════════════════════ */
-.ab-rule {
-  width: 100%;
-  height: 1px;
-  background: var(--color-border);
-}
-
-/* ═══════════════════════════════
-   3. BIO ROW & COURSEWORK ROW
-═══════════════════════════════ */
-.ab-bio-row {
-  display: grid;
-  grid-template-columns: 160px 1fr;
-  gap: 48px;
-  align-items: start;
-}
-
-.ab-bio-index {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  padding-top: 4px;
-}
-
-.ab-index-num {
-  font-family: var(--font-heading);
-  font-size: 2.4rem;
-  font-weight: 900;
-  letter-spacing: -0.06em;
-  color: var(--color-text-primary);
-  line-height: 1;
-}
-
-.ab-index-label {
-  font-family: var(--font-heading);
-  font-size: 0.6rem;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  color: var(--color-text-muted);
-}
-
-.ab-bio-copy {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.ab-body-text {
-  font-family: var(--font-sans);
-  font-size: 1rem;
-  line-height: 1.8;
-  color: var(--color-text-secondary);
-  font-weight: 400;
-  max-width: 680px;
-}
-
-.ab-body-text strong {
-  color: var(--color-text-primary);
-  font-weight: 600;
-}
-
-/* ═══════════════════════════════
-   4. STATS STRIP
-═══════════════════════════════ */
-.ab-stats-strip {
-  display: flex;
-  align-items: center;
-  gap: 0;
-  border: 1px solid var(--color-border);
-  border-radius: 20px;
-  overflow: hidden;
-  background: var(--color-bg-page);
-}
-
-.ab-stat {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  padding: 32px 24px;
-  transition: background 0.2s ease;
-}
-
-.ab-stat:hover {
-  background: var(--color-bg-gray);
-}
-
-.ab-stat-divider {
-  width: 1px;
-  height: 60px;
-  background: var(--color-border);
-  flex-shrink: 0;
-}
-
-.ab-stat-val {
-  font-family: var(--font-heading);
-  font-size: 2.8rem;
-  font-weight: 900;
-  letter-spacing: -0.05em;
-  color: var(--color-text-primary);
-  line-height: 1;
-}
-
-.ab-stat-lbl {
-  font-family: var(--font-sans);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  color: var(--color-text-muted);
   text-transform: uppercase;
 }
 
-/* ═══════════════════════════════
-   6. THREE INFO CARDS
-═══════════════════════════════ */
-.ab-cards-row {
-  display: grid;
-  grid-template-columns: 1fr 1.6fr 1fr;
-  gap: 14px;
+.ab-mini-title {
+  font-family: var(--font-heading, sans-serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  color: var(--color-text-primary, #0f0f11);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  margin: 0;
 }
 
-/* Base card */
-.ab-info-card {
-  border-radius: 20px;
-  border: 1px solid var(--color-border);
-  background: var(--color-bg-page);
-  padding: 28px 28px 32px;
+.ab-mini-title .orange-accent {
+  color: var(--color-accent-orange, #e05e35);
+  background: linear-gradient(135deg, #e05e35 0%, #ff8c5a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.ab-mini-sub {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--color-text-secondary, #555);
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   2. COMPACT MINI-FOLDERS GRID (MATCHING WEBSITE THEME)
+   -------------------------------------------------------------------------- */
+.ab-folders-row-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  width: 100%;
+}
+
+/* Mini Folder Wrapper */
+.mini-folder-card-wrap {
+  width: 250px;
+  height: 210px;
+  position: relative;
+  cursor: pointer;
+  perspective: 800px;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mini-folder-card-wrap:hover {
+  transform: translateY(-6px);
+}
+
+/* Back Plate of Folder */
+.folder-back-plate {
+  position: absolute;
+  inset: 0;
+  border-radius: 22px;
+  background: linear-gradient(145deg, #d04e26 0%, #ff8c5a 100%);
+  box-shadow: 0 15px 35px rgba(224, 94, 53, 0.25);
+  z-index: 1;
+}
+
+.folder-dark-theme .folder-back-plate {
+  background: linear-gradient(145deg, #0b0b0d 0%, #1e1e24 100%);
+  box-shadow: 0 15px 35px rgba(15, 15, 17, 0.25);
+}
+
+/* Top Left Tab Shape */
+.folder-top-tab {
+  position: absolute;
+  top: -12px;
+  left: 0;
+  width: 100px;
+  height: 22px;
+  border-radius: 12px 12px 0 0;
+  background: #d04e26;
+  z-index: 1;
+}
+
+.folder-dark-theme .folder-top-tab {
+  background: #0b0b0d;
+}
+
+/* White Paper Slip Peeking Out */
+.paper-note-slip {
+  position: absolute;
+  top: 14px;
+  left: 12px;
+  right: 12px;
+  height: 120px;
+  background: #ffffff;
+  border-radius: 14px 14px 0 0;
+  box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  z-index: 2;
+  padding: 10px 12px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s ease;
+  gap: 6px;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.ab-info-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(0,0,0,0.06);
+.mini-folder-card-wrap:hover .paper-note-slip {
+  transform: translateY(-24px);
 }
 
-/* Dark variant */
-.ab-card-dark {
-  background: var(--color-bg-dark);
-  border-color: rgba(255,255,255,0.05);
+.slip-date-tag {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-sans, sans-serif);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #666;
 }
 
-/* Goal variant */
-.ab-card-goal {
-  background: var(--color-bg-dark);
-  border-color: rgba(255,255,255,0.05);
-}
-
-.ab-card-kicker {
-  font-family: var(--font-heading);
-  font-size: 0.62rem;
+.slip-time-badge {
+  background: rgba(224, 94, 53, 0.1);
+  color: var(--color-accent-orange, #e05e35);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.6rem;
   font-weight: 800;
-  letter-spacing: 0.15em;
-  color: var(--color-text-muted);
 }
 
-.ab-kicker-orange {
-  color: var(--color-accent-orange) !important;
+.slip-preview-line {
+  height: 4px;
+  background: #e5e5e7;
+  border-radius: 4px;
+  width: 85%;
 }
 
-/* Location card */
-.ab-location-display {
+.slip-preview-line.accent {
+  background: var(--color-accent-orange, #e05e35);
+  width: 60%;
+}
+
+/* Front Pocket of Folder */
+.folder-front-pocket {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 140px;
+  border-radius: 0 0 22px 22px;
+  background: linear-gradient(145deg, #e05e35 0%, #ff8c5a 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.08);
+  z-index: 3;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #ffffff;
+}
+
+.folder-dark-theme .folder-front-pocket {
+  background: linear-gradient(145deg, #0f0f11 0%, #24242a 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.pocket-header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.pocket-folder-name {
+  font-family: var(--font-heading, sans-serif);
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin: 0;
+  line-height: 1.1;
+  color: #ffffff;
+}
+
+.pocket-folder-sub {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 4px 0 0 0;
+}
+
+.pocket-icons-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.pocket-footer-click {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-heading, sans-serif);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.95);
+  text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   3. WHITE NOTE CARD MODAL WITH INTERACTIVE TIMELINE UI
+   -------------------------------------------------------------------------- */
+.note-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 15, 17, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.note-card-window {
+  background: #ffffff;
+  border-radius: 24px;
+  width: 100%;
+  max-width: 560px;
+  max-height: 82vh;
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.note-card-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px 14px;
+  background: #fafafa;
+  border-bottom: 1px solid #e5e5e7;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.note-date-wrap {
   display: flex;
   align-items: center;
   gap: 10px;
+  font-family: var(--font-sans, sans-serif);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #555;
 }
 
-.ab-location-flag {
-  font-size: 1.8rem;
-  line-height: 1;
-}
-
-.ab-location-name {
-  font-family: var(--font-heading);
-  font-size: 1.2rem;
+.note-time-chip {
+  background: rgba(224, 94, 53, 0.12);
+  color: var(--color-accent-orange, #e05e35);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.72rem;
   font-weight: 800;
-  letter-spacing: -0.02em;
-  color: var(--color-text-primary);
 }
 
-.ab-card-note {
-  font-family: var(--font-sans);
-  font-size: 0.76rem;
-  color: var(--color-text-muted);
-  margin-top: auto;
-}
-
-/* Roadmap card */
-.ab-roadmap-label {
+.note-close-icon {
+  background: transparent;
+  border: none;
+  color: #888;
+  cursor: pointer;
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
 }
 
-.ab-roadmap-title {
-  font-family: var(--font-heading);
+.note-close-icon:hover {
+  background: #e5e5e7;
+  color: #0f0f11;
+}
+
+.note-card-body {
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  overflow-y: auto;
+}
+
+.note-main-heading {
+  font-family: var(--font-heading, sans-serif);
+  font-size: 0.85rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  color: #0f0f11;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* Vertical Timeline Structure Inside Modal */
+.modal-timeline-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: relative;
+  border-left: 2px solid rgba(224, 94, 53, 0.25);
+  padding-left: 24px;
+  margin-left: 8px;
+}
+
+.modal-timeline-step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.modal-timeline-step::before {
+  content: '';
+  position: absolute;
+  left: -31px;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid var(--color-accent-orange, #e05e35);
+  box-shadow: 0 0 0 3px #ffffff;
+}
+
+.step-date-badge {
+  font-family: var(--font-heading, sans-serif);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--color-accent-orange, #e05e35);
+  text-transform: uppercase;
+}
+
+.step-title-text {
+  font-family: var(--font-heading, sans-serif);
   font-size: 1.05rem;
   font-weight: 800;
-  color: #fff;
-  letter-spacing: -0.02em;
+  color: #0f0f11;
+  margin: 0;
+  line-height: 1.25;
 }
 
-.ab-roadmap-pct {
-  font-family: var(--font-heading);
-  font-size: 1.1rem;
-  font-weight: 900;
-  color: var(--color-accent-orange);
+.step-desc-text {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #555;
+  margin: 0;
 }
 
-.ab-prog-track {
-  width: 100%;
-  height: 4px;
-  border-radius: 99px;
-  background: rgba(255,255,255,0.1);
-  overflow: hidden;
-}
-
-.ab-prog-fill {
-  height: 100%;
-  border-radius: 99px;
-  background: linear-gradient(90deg, var(--color-accent-orange), #f7a03c);
-}
-
-.ab-stack-wrap {
+.step-tag-pills {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
   margin-top: 4px;
 }
 
-.ab-stack-chip {
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(255,255,255,0.1);
-  color: rgba(255,255,255,0.6);
-  font-family: var(--font-heading);
-  font-size: 0.62rem;
+.timeline-mini-pill {
+  background: #f4f4f6;
+  border: 1px solid #e5e5e7;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-family: var(--font-heading, sans-serif);
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
-  padding: 5px 10px;
-  border-radius: 40px;
+  color: #333;
 }
 
-/* Goal card */
-.ab-goal-flag {
-  font-size: 2.4rem;
-  line-height: 1;
+.timeline-mini-pill.active-pill {
+  background: rgba(224, 94, 53, 0.1);
+  border-color: rgba(224, 94, 53, 0.3);
+  color: var(--color-accent-orange, #e05e35);
 }
 
-.ab-goal-title {
-  font-family: var(--font-heading);
-  font-size: 1.7rem;
-  font-weight: 900;
-  color: #fff;
-  letter-spacing: -0.04em;
-  line-height: 1;
-}
-
-.ab-goal-country {
-  font-family: var(--font-sans);
-  font-size: 0.8rem;
-  color: rgba(255,255,255,0.4);
-}
-
-.ab-goal-sep {
-  width: 100%;
-  height: 1px;
-  background: rgba(255,255,255,0.07);
-  margin: 4px 0;
-}
-
-.ab-german-pill {
+.note-action-footer {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 10px;
-  font-size: 1.2rem;
+  padding-top: 16px;
+  border-top: 1px solid #f0f0f2;
 }
 
-.ab-german-label {
-  font-family: var(--font-sans);
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: rgba(255,255,255,0.65);
-}
-
-.ab-german-target {
-  font-family: var(--font-heading);
-  font-size: 0.68rem;
+.note-btn-primary {
+  background: var(--color-bg-dark, #0f0f11);
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-family: var(--font-heading, sans-serif);
+  font-size: 0.78rem;
   font-weight: 800;
-  letter-spacing: 0.06em;
-  color: var(--color-accent-orange);
-  margin-top: 2px;
-}
-
-/* ═══════════════════════════════
-   8. COURSEWORK TAGS
-═══════════════════════════════ */
-.ab-subjects-wrap {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  align-items: flex-start;
-  padding-top: 6px;
-}
-
-.ab-subject-tag {
-  padding: 12px 22px;
-  border: 1.5px solid var(--color-border);
-  border-radius: 40px;
-  font-family: var(--font-heading);
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--color-text-primary);
-  letter-spacing: 0.02em;
-  transition: var(--transition-smooth);
-  cursor: default;
-}
-
-.ab-subject-tag:hover {
-  background: var(--color-bg-dark);
-  border-color: var(--color-bg-dark);
-  color: #fff;
-  transform: translateY(-2px);
-}
-
-/* ═══════════════════════════════
-   10. CONNECT ROW
-═══════════════════════════════ */
-.ab-connect-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 32px;
-  padding: 8px 0;
-}
-
-.ab-connect-label {
-  font-family: var(--font-heading);
-  font-size: 0.65rem;
-  font-weight: 800;
-  letter-spacing: 0.18em;
-  color: var(--color-text-muted);
-  white-space: nowrap;
-}
-
-.ab-connect-links {
-  display: flex;
-  gap: 10px;
-}
-
-.ab-social-btn {
+  cursor: pointer;
+  transition: all 0.25s ease;
   display: inline-flex;
   align-items: center;
-  gap: 9px;
-  padding: 12px 22px;
-  border-radius: var(--radius-pill);
-  border: 1.5px solid var(--color-border);
-  background: transparent;
-  font-family: var(--font-heading);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  color: var(--color-text-primary);
-  text-decoration: none;
-  transition: var(--transition-smooth);
+  gap: 8px;
 }
 
-.ab-social-btn:hover {
-  background: var(--color-bg-dark);
-  border-color: var(--color-bg-dark);
-  color: #fff;
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-sm);
+.note-btn-primary:hover {
+  background: var(--color-accent-orange, #e05e35);
+  transform: translateY(-1px);
 }
 
-.ab-social-btn svg {
-  flex-shrink: 0;
-  transition: color 0.2s ease;
-}
-
-.ab-social-btn:hover svg {
-  color: var(--color-accent-orange);
-}
-
-/* ═══════════════════════════════
-   RESPONSIVE
-═══════════════════════════════ */
-@media (max-width: 1024px) {
-  .ab-cards-row {
-    grid-template-columns: 1fr 1fr;
-  }
-  .ab-card-goal {
-    grid-column: 1 / 3;
-  }
-}
-
-@media (max-width: 768px) {
-  .ab-section { gap: 40px; }
-
-  .ab-mega-title { font-size: clamp(2.6rem, 10vw, 4rem); }
-
-  .ab-bio-row {
-    grid-template-columns: 80px 1fr;
-    gap: 24px;
+/* --------------------------------------------------------------------------
+   4. RESPONSIVE DESIGN
+   -------------------------------------------------------------------------- */
+@media (max-width: 640px) {
+  .ab-mini-folder-section {
+    padding: 60px 0 40px;
+    gap: 32px;
   }
 
-  .ab-index-num { font-size: 1.6rem; }
-
-  .ab-cards-row { grid-template-columns: 1fr; }
-  .ab-card-goal { grid-column: unset; }
-
-  .ab-connect-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-  }
-
-  .ab-stats-strip {
-    flex-direction: column;
-    border-radius: 16px;
-  }
-  .ab-stat-divider {
+  .mini-folder-card-wrap {
     width: 100%;
-    height: 1px;
-  }
-}
-
-@media (max-width: 480px) {
-  .ab-section { gap: 32px; }
-
-  .ab-hero-block { padding: 24px 0 8px; }
-
-  .ab-bio-row {
-    grid-template-columns: 1fr;
-    gap: 16px;
+    max-width: 280px;
   }
 
-  .ab-bio-index { flex-direction: row; align-items: center; gap: 12px; }
+  .note-card-window {
+    max-width: 100%;
+  }
 
-  .ab-connect-links { flex-wrap: wrap; }
-  .ab-social-btn { flex: 1; min-width: 120px; justify-content: center; }
+  .modal-timeline-wrap {
+    margin-left: 4px;
+    padding-left: 18px;
+  }
 
-  .ab-info-card { padding: 22px 20px; }
+  .modal-timeline-step::before {
+    left: -24px;
+  }
 }

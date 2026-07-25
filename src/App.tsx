@@ -6,7 +6,6 @@ import { CartDrawer } from './components/CartDrawer';
 import { ContactModal } from './components/ContactModal';
 import { SearchModal } from './components/SearchModal';
 import { ContactSection } from './components/ContactSection';
-import { InfiniteCarousel } from './components/InfiniteCarousel';
 import { About } from './components/About';
 import { MouseClickEffect } from './components/MouseClickEffect';
 import { ProjectModal } from './components/ProjectModal';
@@ -119,9 +118,6 @@ function App() {
 
       {/* About Section */}
       <About />
-
-      {/* Infinite Scrolling Carousel */}
-      <InfiniteCarousel />
 
       {/* Aesthetic Contact Section */}
       <ContactSection />

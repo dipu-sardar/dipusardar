@@ -1,135 +1,401 @@
-import React, { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Folder, FolderKanban, Settings, X, ArrowUpRight, GraduationCap, Cpu, Compass, MapPin } from 'lucide-react';
 import './About.css';
 
+type FolderType = 'education' | 'roadmap' | 'goals' | 'location' | null;
 
-/* ── Framer Motion helper ── */
-const rise = (delay = 0) => ({
-  initial: { opacity: 0, y: 32 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: '-60px' },
-  transition: { duration: 0.72, delay, ease: [0.16, 1, 0.3, 1] as const },
-});
-
-/* ── Data ── */
-const STATS = [
-  { value: '5th',  label: 'Semester' },
-  { value: '6 mo', label: 'AI Roadmap' },
-  { value: 'B2',   label: 'German target' },
-];
-
-const STACK = ['Python', 'NumPy', 'Pandas', 'Matplotlib', 'Statistics', 'Linear Algebra'];
-
-/* ═══════════════════════════════════════════════════
-   COMPONENT
-═══════════════════════════════════════════════════ */
 export const About: React.FC = () => {
-  const progressRef = useRef<HTMLDivElement>(null);
-  const progressInView = useInView(progressRef, { once: true });
+  const [activeNote, setActiveNote] = useState<FolderType>(null);
+
+  const handleScrollToContact = () => {
+    setActiveNote(null);
+    const contactElement = document.getElementById('contact');
+    if (contactElement) {
+      contactElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
-    <section className="ab-section" id="about">
-
-      {/* ── 1. Centered catalog-style header ── */}
-      <motion.div className="ab-hero-block" {...rise(0)}>
-        <span className="ab-kicker">WHO I AM</span>
-        <h2 className="ab-mega-title">THE STORY SO FAR</h2>
-        <p className="ab-mega-sub">
-          A CSE student building toward an AI career, one project at a time.
+    <section className="ab-mini-folder-section" id="about">
+      {/* ── 1. SECTION HEADER ── */}
+      <motion.div
+        className="ab-mini-header"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <div className="ab-mini-badge">
+          <Folder size={14} />
+          <span>ABOUT ME</span>
+        </div>
+        <h2 className="ab-mini-title">
+          EXPLORE MY <span className="orange-accent">JOURNEY</span>
+        </h2>
+        <p className="ab-mini-sub">
+          Click on any folder below to inspect my education, AI roadmap, and future goals.
         </p>
       </motion.div>
 
-      {/* ── 2. Full-width divider ── */}
-      <div className="ab-rule" />
+      {/* ── 2. COMPACT MINI-FOLDERS ROW GRID ── */}
+      <div className="ab-folders-row-grid">
+        
+        {/* MINI-FOLDER 1: EDUCATION (SIGNATURE ORANGE) */}
+        <motion.div
+          className="mini-folder-card-wrap"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.05 }}
+          onClick={() => setActiveNote('education')}
+        >
+          <div className="folder-back-plate" />
+          <div className="folder-top-tab" />
 
-      {/* ── 3. Bio row — number label + two paragraphs ── */}
-      <div className="ab-bio-row">
-        <motion.div className="ab-bio-index" {...rise(0.06)}>
-          <span className="ab-index-num">01</span>
-          <span className="ab-index-label">STORY</span>
+          {/* Paper Note Slip */}
+          <div className="paper-note-slip">
+            <div className="slip-date-tag">
+              <span>ACADEMIC</span>
+              <span className="slip-time-badge">5th Sem</span>
+            </div>
+            <div className="slip-preview-line accent" />
+            <div className="slip-preview-line" />
+          </div>
+
+          {/* Front Pocket */}
+          <div className="folder-front-pocket">
+            <div className="pocket-header-row">
+              <div>
+                <h3 className="pocket-folder-name">Education</h3>
+                <p className="pocket-folder-sub">4 Timeline Notes</p>
+              </div>
+              <div className="pocket-icons-wrap">
+                <GraduationCap size={16} />
+                <Settings size={14} />
+              </div>
+            </div>
+
+            <div className="pocket-footer-click">
+              <span>OPEN TIMELINE</span>
+              <ArrowUpRight size={12} />
+            </div>
+          </div>
         </motion.div>
-        <div className="ab-bio-copy">
-          <motion.p className="ab-body-text" {...rise(0.1)}>
-            I'm a second-year student at the <strong>University of Global Village, Barishal</strong>,
-            currently in my 5th semester. Alongside my degree I'm working through a structured
-            6-month AI Engineer roadmap — Python, NumPy, Pandas, Matplotlib and the maths that
-            powers machine learning: statistics, probability, linear algebra, calculus.
-          </motion.p>
-          <motion.p className="ab-body-text" {...rise(0.15)}>
-            I enjoy turning theory into real projects — from a Blood Bank Management System
-            and Compiler Design tools built with Lex/Flex, to a fully custom AI roadmap tracker
-            built from scratch. I also write study guides in Bengali to help fellow students.
-          </motion.p>
-        </div>
+
+        {/* MINI-FOLDER 2: AI ROADMAP (EDITORIAL DARK SLATE) */}
+        <motion.div
+          className="mini-folder-card-wrap folder-dark-theme"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          onClick={() => setActiveNote('roadmap')}
+        >
+          <div className="folder-back-plate" />
+          <div className="folder-top-tab" />
+
+          <div className="paper-note-slip">
+            <div className="slip-date-tag">
+              <span>AI TRACK</span>
+              <span className="slip-time-badge">~40%</span>
+            </div>
+            <div className="slip-preview-line accent" />
+            <div className="slip-preview-line" />
+          </div>
+
+          <div className="folder-front-pocket">
+            <div className="pocket-header-row">
+              <div>
+                <h3 className="pocket-folder-name">AI Roadmap</h3>
+                <p className="pocket-folder-sub">6-Month Track</p>
+              </div>
+              <div className="pocket-icons-wrap">
+                <Cpu size={16} />
+                <Settings size={14} />
+              </div>
+            </div>
+
+            <div className="pocket-footer-click">
+              <span>VIEW MATRIX</span>
+              <ArrowUpRight size={12} />
+            </div>
+          </div>
+        </motion.div>
+
+        {/* MINI-FOLDER 3: JKU LINZ AUSTRIA (SIGNATURE ORANGE) */}
+        <motion.div
+          className="mini-folder-card-wrap"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          onClick={() => setActiveNote('goals')}
+        >
+          <div className="folder-back-plate" />
+          <div className="folder-top-tab" />
+
+          <div className="paper-note-slip">
+            <div className="slip-date-tag">
+              <span>AUSTRIA 🇦🇹</span>
+              <span className="slip-time-badge">Target B2</span>
+            </div>
+            <div className="slip-preview-line accent" />
+            <div className="slip-preview-line" />
+          </div>
+
+          <div className="folder-front-pocket">
+            <div className="pocket-header-row">
+              <div>
+                <h3 className="pocket-folder-name">JKU Linz</h3>
+                <p className="pocket-folder-sub">Master's Goal</p>
+              </div>
+              <div className="pocket-icons-wrap">
+                <Compass size={16} />
+                <Settings size={14} />
+              </div>
+            </div>
+
+            <div className="pocket-footer-click">
+              <span>VIEW GOALS</span>
+              <ArrowUpRight size={12} />
+            </div>
+          </div>
+        </motion.div>
+
+        {/* MINI-FOLDER 4: LOCATION & STATUS (EDITORIAL DARK SLATE) */}
+        <motion.div
+          className="mini-folder-card-wrap folder-dark-theme"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          onClick={() => setActiveNote('location')}
+        >
+          <div className="folder-back-plate" />
+          <div className="folder-top-tab" />
+
+          <div className="paper-note-slip">
+            <div className="slip-date-tag">
+              <span>LOCATION</span>
+              <span className="slip-time-badge" style={{ background: '#ecfdf5', color: '#10b981' }}>UTC +6</span>
+            </div>
+            <div className="slip-preview-line accent" />
+            <div className="slip-preview-line" />
+          </div>
+
+          <div className="folder-front-pocket">
+            <div className="pocket-header-row">
+              <div>
+                <h3 className="pocket-folder-name">Location</h3>
+                <p className="pocket-folder-sub">Dhaka, Bangladesh</p>
+              </div>
+              <div className="pocket-icons-wrap">
+                <MapPin size={16} />
+                <FolderKanban size={14} />
+              </div>
+            </div>
+
+            <div className="pocket-footer-click">
+              <span>CHECK STATUS</span>
+              <ArrowUpRight size={12} />
+            </div>
+          </div>
+        </motion.div>
+
       </div>
 
-      {/* ── 4. Stats row ── */}
-      <motion.div className="ab-stats-strip" {...rise(0.1)}>
-        {STATS.map((s, i) => (
-          <React.Fragment key={s.label}>
-            <div className="ab-stat">
-              <span className="ab-stat-val">{s.value}</span>
-              <span className="ab-stat-lbl">{s.label}</span>
-            </div>
-            {i < STATS.length - 1 && <div className="ab-stat-divider" />}
-          </React.Fragment>
-        ))}
-      </motion.div>
-
-      {/* ── 5. Full-width divider ── */}
-      <div className="ab-rule" />
-
-      {/* ── 6. Three info cards ── */}
-      <div className="ab-cards-row">
-
-        {/* Location */}
-        <motion.div className="ab-info-card" {...rise(0.06)}>
-          <span className="ab-card-kicker">BASED IN</span>
-          <div className="ab-location-display">
-            <span className="ab-location-flag">📍</span>
-            <span className="ab-location-name">Dhaka, Bangladesh</span>
-          </div>
-          <p className="ab-card-note">UTC +6 · Open to remote &amp; relocation</p>
-        </motion.div>
-
-        {/* AI Roadmap */}
-        <motion.div className="ab-info-card ab-card-dark" {...rise(0.12)}>
-          <span className="ab-card-kicker ab-kicker-orange">AI ROADMAP</span>
-          <div className="ab-roadmap-label">
-            <span className="ab-roadmap-title">6-Month Journey</span>
-            <span className="ab-roadmap-pct">~40%</span>
-          </div>
-          <div className="ab-prog-track" ref={progressRef}>
+      {/* ── 3. WHITE NOTE CARD MODAL WITH SPRING PHYSICS & TIMELINE UI ── */}
+      <AnimatePresence>
+        {activeNote && (
+          <motion.div
+            className="note-modal-backdrop"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setActiveNote(null)}
+          >
             <motion.div
-              className="ab-prog-fill"
-              initial={{ width: 0 }}
-              animate={progressInView ? { width: '40%' } : { width: 0 }}
-              transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            />
-          </div>
-          <div className="ab-stack-wrap">
-            {STACK.map((s) => <span key={s} className="ab-stack-chip">{s}</span>)}
-          </div>
-        </motion.div>
+              className="note-card-window"
+              initial={{ scale: 0.88, opacity: 0, y: 24, rotateX: 6 }}
+              animate={{ scale: 1, opacity: 1, y: 0, rotateX: 0 }}
+              exit={{ scale: 0.88, opacity: 0, y: 24, rotateX: -6 }}
+              transition={{ type: 'spring', stiffness: 260, damping: 22 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Top Bar */}
+              <div className="note-card-top-bar">
+                <div className="note-date-wrap">
+                  <span>FILE TIMELINE NOTE</span>
+                  <span className="note-time-chip">LIVE PREVIEW</span>
+                </div>
+                <button className="note-close-icon" onClick={() => setActiveNote(null)}>
+                  <X size={16} />
+                </button>
+              </div>
 
-        {/* Dream goal */}
-        <motion.div className="ab-info-card ab-card-goal" {...rise(0.18)}>
-          <span className="ab-card-kicker ab-kicker-orange">DREAM GOAL</span>
-          <div className="ab-goal-flag">🇦🇹</div>
-          <div className="ab-goal-title">JKU Linz</div>
-          <div className="ab-goal-country">Austria · Europe</div>
-          <div className="ab-goal-sep" />
-          <div className="ab-german-pill">
-            <span>🗣</span>
-            <div>
-              <div className="ab-german-label">Learning German</div>
-              <div className="ab-german-target">Target: B2</div>
-            </div>
-          </div>
-        </motion.div>
+              {/* Note Body with Vertical Timeline */}
+              <div className="note-card-body">
+                {/* EDUCATION TIMELINE NOTE */}
+                {activeNote === 'education' && (
+                  <>
+                    <h4 className="note-main-heading">ACADEMIC BACKGROUND TIMELINE</h4>
+                    
+                    <div className="modal-timeline-wrap">
+                      <div className="modal-timeline-step">
+                        <span className="step-date-badge">2024 — PRESENT</span>
+                        <h5 className="step-title-text">B.Sc. in Computer Science &amp; Engineering (5th Semester)</h5>
+                        <p className="step-desc-text">
+                          University of Global Village (UGV), Barishal. Focusing on software engineering, algorithm design, and database architectures.
+                        </p>
+                        <div className="step-tag-pills">
+                          <span className="timeline-mini-pill active-pill">UGV Barishal</span>
+                          <span className="timeline-mini-pill">5th Sem</span>
+                          <span className="timeline-mini-pill">CSE Major</span>
+                        </div>
+                      </div>
 
-      </div>
+                      <div className="modal-timeline-step">
+                        <span className="step-date-badge">2024 — ACTIVE</span>
+                        <h5 className="step-title-text">Bengali CS Study Guides Author</h5>
+                        <p className="step-desc-text">
+                          Writing open computer science study guides in Bengali to make technical concepts accessible to university students.
+                        </p>
+                        <div className="step-tag-pills">
+                          <span className="timeline-mini-pill active-pill">Open Content</span>
+                          <span className="timeline-mini-pill">Bengali CS</span>
+                        </div>
+                      </div>
 
+                      <div className="modal-timeline-step">
+                        <span className="step-date-badge">2023 — COMPLETED</span>
+                        <h5 className="step-title-text">Compiler Design &amp; Management Systems</h5>
+                        <p className="step-desc-text">
+                          Engineered Lex/Flex compiler analysis tools and a Blood Bank Management System.
+                        </p>
+                        <div className="step-tag-pills">
+                          <span className="timeline-mini-pill">Lex / Flex</span>
+                          <span className="timeline-mini-pill">C / C++</span>
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                )}
+
+                {/* AI ROADMAP TIMELINE NOTE */}
+                {activeNote === 'roadmap' && (
+                  <>
+                    <h4 className="note-main-heading">6-MONTH AI ENGINEER TRACK TIMELINE (~40%)</h4>
+
+                    <div className="modal-timeline-wrap">
+                      <div className="modal-timeline-step">
+                        <span className="step-date-badge">MONTH 1 – 2 (COMPLETED)</span>
+                        <h5 className="step-title-text">Python &amp; Data Analysis Foundations</h5>
+                        <p className="step-desc-text">
+                          Mastered Python syntax, NumPy array manipulation, Pandas dataframes, Matplotlib/Seaborn visualization, and data cleaning pipelines.
+                        </p>
+                        <div className="step-tag-pills">
+                          <span className="timeline-mini-pill active-pill">Python</span>
+                          <span className="timeline-mini-pill">NumPy</span>
+                          <span className="timeline-mini-pill">Pandas</span>
+                        </div>
+                      </div>
+
+                      <div className="modal-timeline-step">
+                        <span className="step-date-badge">MONTH 3 – 4 (ACTIVE ~40%)</span>
+                        <h5 className="step-title-text">Mathematics for AI &amp; Classical ML</h5>
+                        <p className="step-desc-text">
+                          Linear Algebra (matrices, vectors, eigenvalues), Multivariable Calculus (gradients, optimization), Probability &amp; Scikit-Learn models.
+                        </p>
+                        <div className="step-tag-pills">
+                          <span className="timeline-mini-pill active-pill">Calculus</span>
+                          <span className="timeline-mini-pill active-pill">Linear Algebra</span>
+                          <span className="timeline-mini-pill">Scikit-learn</span>
+                        </div>
+                      </div>
+
+                      <div className="modal-timeline-step">
+                        <span className="step-date-badge">MONTH 5 – 6 (UPCOMING)</span>
+                        <h5 className="step-title-text">Deep Learning &amp; Neural Architectures</h5>
+                        <p className="step-desc-text">
+                          Building neural networks from scratch with PyTorch, CNNs for vision, and Transformers for Generative AI applications.
+                        </p>
+                        <div className="step-tag-pills">
+                          <span className="timeline-mini-pill">PyTorch</span>
+                          <span className="timeline-mini-pill">Deep Learning</span>
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                )}
+
+                {/* JKU LINZ NOTE CARD */}
+                {activeNote === 'goals' && (
+                  <>
+                    <h4 className="note-main-heading">MASTER'S GOAL: JKU LINZ · AUSTRIA 🇦🇹</h4>
+
+                    <div className="modal-timeline-wrap">
+                      <div className="modal-timeline-step">
+                        <span className="step-date-badge">PHASE 1 (ACTIVE)</span>
+                        <h5 className="step-title-text">German Language Certification (B2 Target)</h5>
+                        <p className="step-desc-text">
+                          Enrolled in intensive German language study targeting B2 proficiency for academic integration in Austria.
+                        </p>
+                        <div className="step-tag-pills">
+                          <span className="timeline-mini-pill active-pill">German B2</span>
+                          <span className="timeline-mini-pill">Language Track</span>
+                        </div>
+                      </div>
+
+                      <div className="modal-timeline-step">
+                        <span className="step-date-badge">PHASE 2 (TARGET)</span>
+                        <h5 className="step-title-text">M.Sc. in Artificial Intelligence @ JKU Linz</h5>
+                        <p className="step-desc-text">
+                          Johannes Kepler University Linz, Austria. Focusing on advanced autonomous systems and machine learning research.
+                        </p>
+                        <div className="step-tag-pills">
+                          <span className="timeline-mini-pill active-pill">JKU Linz 🇦🇹</span>
+                          <span className="timeline-mini-pill">AI Master's</span>
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                )}
+
+                {/* LOCATION NOTE CARD */}
+                {activeNote === 'location' && (
+                  <>
+                    <h4 className="note-main-heading">LOCATION &amp; WORKING STATUS</h4>
+
+                    <div className="modal-timeline-wrap">
+                      <div className="modal-timeline-step">
+                        <span className="step-date-badge">CURRENT BASE</span>
+                        <h5 className="step-title-text">Dhaka, Bangladesh (UTC +6:00)</h5>
+                        <p className="step-desc-text">
+                          Available for remote Machine Learning engineering, software development roles, and open-source contributions worldwide.
+                        </p>
+                        <div className="step-tag-pills">
+                          <span className="timeline-mini-pill active-pill">Dhaka Base</span>
+                          <span className="timeline-mini-pill">UTC+6</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="note-action-footer">
+                      <button onClick={handleScrollToContact} className="note-btn-primary">
+                        <span>SEND MESSAGE</span>
+                        <ArrowUpRight size={14} />
+                      </button>
+                    </div>
+                  </>
+                )}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
+
+export default About;
