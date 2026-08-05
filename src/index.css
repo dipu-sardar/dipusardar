@@ -7,17 +7,20 @@
   --color-bg-page: #f4f4f6;
   --color-bg-card: #ffffff;
   --color-bg-gray: #e2e2e4;
-  --color-bg-dark: #0f0f11;
-  --color-bg-olive: #4a5a54;
+  --color-bg-dark: #0b1e0d;
+  --color-bg-olive: #384d33;
+  --color-bg-lime: #bcf01a;
+  --color-bg-sage: #d7e8b6;
   
-  --color-text-primary: #0f0f11;
-  --color-text-secondary: #56565e;
-  --color-text-muted: #8e8e9a;
+  --color-text-primary: #0b1e0d;
+  --color-text-secondary: #4a5c43;
+  --color-text-muted: #72856a;
   --color-text-light: #ffffff;
   
+  --color-accent-lime: #bcf01a;
   --color-accent-orange: #e05e35;
   --color-accent-orange-light: rgba(224, 94, 53, 0.1);
-  --color-border: rgba(15, 15, 17, 0.08);
+  --color-border: rgba(11, 30, 13, 0.08);
   --color-border-light: rgba(255, 255, 255, 0.2);
   
   /* System */

@@ -14,7 +14,7 @@
 
 /* Left Title Card */
 .hero-title-card-simple {
-  background-color: var(--color-bg-gray);
+  background-color: var(--color-bg-dark);
   border-radius: var(--radius-xl);
   padding: 56px;
   display: flex;
@@ -30,7 +30,7 @@
   font-size: clamp(3.5rem, 7.5vw, 6.2rem);
   line-height: 0.9;
   letter-spacing: -0.03em;
-  color: var(--color-text-primary);
+  color: #ffffff;
   margin: 0;
   text-transform: uppercase;
 }
@@ -44,7 +44,7 @@
   font-size: clamp(0.85rem, 1.5vw, 1.15rem);
   font-weight: 700;
   letter-spacing: 0.08em;
-  color: var(--color-text-secondary);
+  color: var(--color-accent-lime);
   margin-top: 24px;
   text-transform: uppercase;
 }
@@ -53,7 +53,7 @@
   font-family: var(--font-sans);
   font-size: 0.95rem;
   line-height: 1.5;
-  color: var(--color-text-secondary);
+  color: rgba(255, 255, 255, 0.85);
   max-width: 380px;
   margin-top: 16px;
   font-weight: 500;
@@ -86,28 +86,28 @@
 }
 
 .hero-btn.primary-btn {
-  background-color: var(--color-bg-dark);
-  color: var(--color-text-light);
-  border: 1px solid var(--color-bg-dark);
+  background-color: var(--color-accent-lime);
+  color: var(--color-bg-dark);
+  border: 1px solid var(--color-accent-lime);
 }
 
 .hero-btn.primary-btn:hover {
-  background-color: var(--color-accent-orange);
-  border-color: var(--color-accent-orange);
+  background-color: #a3db10;
+  border-color: #a3db10;
   transform: translateY(-2px);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 6px 20px rgba(188, 240, 26, 0.3);
 }
 
 .hero-btn.secondary-btn {
-  background-color: transparent;
-  color: var(--color-text-primary);
-  border: 1.5px solid var(--color-border);
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
 }
 
 .hero-btn.secondary-btn:hover {
-  background-color: var(--color-bg-dark);
-  color: var(--color-text-light);
-  border-color: var(--color-bg-dark);
+  background-color: #ffffff;
+  color: var(--color-bg-dark);
+  border-color: #ffffff;
   transform: translateY(-2px);
 }
 

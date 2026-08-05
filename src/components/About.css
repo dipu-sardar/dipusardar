@@ -1,21 +1,19 @@
 /* ==========================================================================
-   ABOUT SECTION REDESIGN — COMPACT 3D MINI-FOLDER WIDGETS
-   (MATCHED TO WEBSITE SIGNATURE COLOR SYSTEM & INTERACTIVE TIMELINE UI)
+   ABOUT SECTION REDESIGN — 3 FOLDER CARDS & INLINE TIMELINE EXPANSION
+   (MATCHED 100% TO USER REFERENCE IMAGE)
    ========================================================================== */
 
 .ab-mini-folder-section {
   width: 100%;
-  padding: 80px 0 60px;
+  padding: 60px 0 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 48px;
+  gap: 40px;
   position: relative;
 }
 
-/* --------------------------------------------------------------------------
-   1. SECTION HEADER
-   -------------------------------------------------------------------------- */
+/* Header */
 .ab-mini-header {
   text-align: center;
   max-width: 680px;
@@ -32,10 +30,10 @@
   gap: 8px;
   padding: 6px 16px;
   border-radius: 50px;
-  background: rgba(224, 94, 53, 0.1);
-  border: 1px solid rgba(224, 94, 53, 0.25);
-  color: var(--color-accent-orange, #e05e35);
-  font-family: var(--font-heading, sans-serif);
+  background: rgba(188, 240, 26, 0.15);
+  border: 1px solid rgba(188, 240, 26, 0.3);
+  color: var(--color-accent-lime);
+  font-family: var(--font-heading);
   font-size: 0.75rem;
   font-weight: 800;
   letter-spacing: 0.15em;
@@ -43,10 +41,10 @@
 }
 
 .ab-mini-title {
-  font-family: var(--font-heading, sans-serif);
+  font-family: var(--font-heading);
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 900;
-  color: var(--color-text-primary, #0f0f11);
+  color: var(--color-text-primary);
   line-height: 1.1;
   letter-spacing: -0.03em;
   text-transform: uppercase;
@@ -54,428 +52,296 @@
 }
 
 .ab-mini-title .orange-accent {
-  color: var(--color-accent-orange, #e05e35);
-  background: linear-gradient(135deg, #e05e35 0%, #ff8c5a 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--color-accent-lime);
 }
 
 .ab-mini-sub {
-  font-family: var(--font-sans, sans-serif);
+  font-family: var(--font-sans);
   font-size: 1rem;
   line-height: 1.55;
-  color: var(--color-text-secondary, #555);
+  color: var(--color-text-secondary);
   margin: 0;
 }
 
 /* --------------------------------------------------------------------------
-   2. COMPACT MINI-FOLDERS GRID (MATCHING WEBSITE THEME)
+   2. FOLDERS ROW GRID (COMPACT PROPORTIONED FOLDERS)
    -------------------------------------------------------------------------- */
 .ab-folders-row-grid {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
   justify-content: center;
-  gap: 32px;
-  width: 100%;
-}
-
-/* Mini Folder Wrapper */
-.mini-folder-card-wrap {
-  width: 250px;
-  height: 210px;
-  position: relative;
-  cursor: pointer;
-  perspective: 800px;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.mini-folder-card-wrap:hover {
-  transform: translateY(-6px);
-}
-
-/* Back Plate of Folder */
-.folder-back-plate {
-  position: absolute;
-  inset: 0;
-  border-radius: 22px;
-  background: linear-gradient(145deg, #d04e26 0%, #ff8c5a 100%);
-  box-shadow: 0 15px 35px rgba(224, 94, 53, 0.25);
-  z-index: 1;
-}
-
-.folder-dark-theme .folder-back-plate {
-  background: linear-gradient(145deg, #0b0b0d 0%, #1e1e24 100%);
-  box-shadow: 0 15px 35px rgba(15, 15, 17, 0.25);
-}
-
-/* Top Left Tab Shape */
-.folder-top-tab {
-  position: absolute;
-  top: -12px;
-  left: 0;
-  width: 100px;
-  height: 22px;
-  border-radius: 12px 12px 0 0;
-  background: #d04e26;
-  z-index: 1;
-}
-
-.folder-dark-theme .folder-top-tab {
-  background: #0b0b0d;
-}
-
-/* White Paper Slip Peeking Out */
-.paper-note-slip {
-  position: absolute;
-  top: 14px;
-  left: 12px;
-  right: 12px;
-  height: 120px;
-  background: #ffffff;
-  border-radius: 14px 14px 0 0;
-  box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  z-index: 2;
-  padding: 10px 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.mini-folder-card-wrap:hover .paper-note-slip {
-  transform: translateY(-24px);
-}
-
-.slip-date-tag {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-family: var(--font-sans, sans-serif);
-  font-size: 0.65rem;
-  font-weight: 700;
-  color: #666;
-}
-
-.slip-time-badge {
-  background: rgba(224, 94, 53, 0.1);
-  color: var(--color-accent-orange, #e05e35);
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-size: 0.6rem;
-  font-weight: 800;
-}
-
-.slip-preview-line {
-  height: 4px;
-  background: #e5e5e7;
-  border-radius: 4px;
-  width: 85%;
-}
-
-.slip-preview-line.accent {
-  background: var(--color-accent-orange, #e05e35);
-  width: 60%;
-}
-
-/* Front Pocket of Folder */
-.folder-front-pocket {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 140px;
-  border-radius: 0 0 22px 22px;
-  background: linear-gradient(145deg, #e05e35 0%, #ff8c5a 100%);
-  border-top: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.08);
-  z-index: 3;
-  padding: 18px 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  color: #ffffff;
-}
-
-.folder-dark-theme .folder-front-pocket {
-  background: linear-gradient(145deg, #0f0f11 0%, #24242a 100%);
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.pocket-header-row {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-}
-
-.pocket-folder-name {
-  font-family: var(--font-heading, sans-serif);
-  font-size: 1.1rem;
-  font-weight: 800;
-  margin: 0;
-  line-height: 1.1;
-  color: #ffffff;
-}
-
-.pocket-folder-sub {
-  font-family: var(--font-sans, sans-serif);
-  font-size: 0.72rem;
-  color: rgba(255, 255, 255, 0.85);
-  margin: 4px 0 0 0;
-}
-
-.pocket-icons-wrap {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: rgba(255, 255, 255, 0.85);
-}
-
-.pocket-footer-click {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-family: var(--font-heading, sans-serif);
-  font-size: 0.68rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.95);
-  text-transform: uppercase;
-}
-
-/* --------------------------------------------------------------------------
-   3. WHITE NOTE CARD MODAL WITH INTERACTIVE TIMELINE UI
-   -------------------------------------------------------------------------- */
-.note-modal-backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(15, 15, 17, 0.65);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-
-.note-card-window {
-  background: #ffffff;
-  border-radius: 24px;
-  width: 100%;
-  max-width: 560px;
-  max-height: 82vh;
-  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.3);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  position: relative;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-}
-
-.note-card-top-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 18px 24px 14px;
-  background: #fafafa;
-  border-bottom: 1px solid #e5e5e7;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-.note-date-wrap {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--font-sans, sans-serif);
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: #555;
-}
-
-.note-time-chip {
-  background: rgba(224, 94, 53, 0.12);
-  color: var(--color-accent-orange, #e05e35);
-  padding: 4px 10px;
-  border-radius: 6px;
-  font-size: 0.72rem;
-  font-weight: 800;
-}
-
-.note-close-icon {
-  background: transparent;
-  border: none;
-  color: #888;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 6px;
-  border-radius: 50%;
-  transition: all 0.2s ease;
-}
-
-.note-close-icon:hover {
-  background: #e5e5e7;
-  color: #0f0f11;
-}
-
-.note-card-body {
-  padding: 28px 24px;
-  display: flex;
-  flex-direction: column;
   gap: 24px;
-  overflow-y: auto;
+  width: 100%;
+  max-width: 980px;
+  margin: 12px auto 0;
 }
 
-.note-main-heading {
-  font-family: var(--font-heading, sans-serif);
-  font-size: 0.85rem;
-  font-weight: 900;
-  letter-spacing: 0.12em;
-  color: #0f0f11;
-  text-transform: uppercase;
-  margin: 0;
-}
-
-/* Vertical Timeline Structure Inside Modal */
-.modal-timeline-wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+/* Folder Card Base */
+.journey-folder-card {
   position: relative;
-  border-left: 2px solid rgba(224, 94, 53, 0.25);
-  padding-left: 24px;
-  margin-left: 8px;
-}
-
-.modal-timeline-step {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.modal-timeline-step::before {
-  content: '';
-  position: absolute;
-  left: -31px;
-  top: 4px;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #ffffff;
-  border: 3px solid var(--color-accent-orange, #e05e35);
-  box-shadow: 0 0 0 3px #ffffff;
-}
-
-.step-date-badge {
-  font-family: var(--font-heading, sans-serif);
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  color: var(--color-accent-orange, #e05e35);
-  text-transform: uppercase;
-}
-
-.step-title-text {
-  font-family: var(--font-heading, sans-serif);
-  font-size: 1.05rem;
-  font-weight: 800;
-  color: #0f0f11;
-  margin: 0;
-  line-height: 1.25;
-}
-
-.step-desc-text {
-  font-family: var(--font-sans, sans-serif);
-  font-size: 0.88rem;
-  line-height: 1.6;
-  color: #555;
-  margin: 0;
-}
-
-.step-tag-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 4px;
-}
-
-.timeline-mini-pill {
-  background: #f4f4f6;
-  border: 1px solid #e5e5e7;
-  padding: 3px 10px;
   border-radius: 20px;
-  font-family: var(--font-heading, sans-serif);
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: #333;
+  padding: 26px 22px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 290px;
+  min-height: 215px;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
 }
 
-.timeline-mini-pill.active-pill {
-  background: rgba(224, 94, 53, 0.1);
-  border-color: rgba(224, 94, 53, 0.3);
-  color: var(--color-accent-orange, #e05e35);
+.journey-folder-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
 
-.note-action-footer {
+.journey-folder-card.active-folder {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+}
+
+/* Folder Top Tab Notch */
+.journey-folder-tab {
+  position: absolute;
+  top: -14px;
+  left: 0;
+  width: 110px;
+  height: 20px;
+  border-radius: 12px 12px 0 0;
+  transition: background-color 0.3s ease;
+}
+
+/* Folder Header */
+.journey-folder-header {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  gap: 10px;
-  padding-top: 16px;
-  border-top: 1px solid #f0f0f2;
-}
-
-.note-btn-primary {
-  background: var(--color-bg-dark, #0f0f11);
-  color: #ffffff;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 12px;
-  font-family: var(--font-heading, sans-serif);
-  font-size: 0.78rem;
+  justify-content: space-between;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
   font-weight: 800;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
-.note-btn-primary:hover {
-  background: var(--color-accent-orange, #e05e35);
-  transform: translateY(-1px);
+/* Folder Body */
+.journey-folder-body {
+  margin-top: 16px;
+  text-align: left;
 }
+
+.journey-folder-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.01em;
+}
+
+.journey-folder-sub {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Folder Footer Action */
+.journey-folder-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding-top: 16px;
+  margin-top: 24px;
+}
+
+.journey-arrow {
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.journey-folder-card:hover .journey-arrow {
+  transform: translateX(4px);
+}
+
+/* ───────────────── FOLDER THEMES (EXACT COLOR MATCH) ───────────────── */
+
+/* 1. DARK FOREST GREEN FOLDER */
+.folder-dark-theme {
+  background-color: var(--color-bg-dark);
+}
+
+.folder-dark-theme .journey-folder-tab {
+  background-color: var(--color-bg-dark);
+}
+
+.folder-dark-theme .journey-folder-header,
+.folder-dark-theme .journey-folder-sub {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.folder-dark-theme .journey-folder-title,
+.folder-dark-theme .journey-folder-footer {
+  color: #ffffff;
+}
+
+.folder-dark-theme .journey-folder-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* 2. VIBRANT LIME GREEN FOLDER */
+.folder-lime-theme {
+  background-color: var(--color-bg-lime);
+}
+
+.folder-lime-theme .journey-folder-tab {
+  background-color: var(--color-bg-lime);
+}
+
+.folder-lime-theme .journey-folder-header,
+.folder-lime-theme .journey-folder-sub {
+  color: rgba(11, 30, 13, 0.8);
+}
+
+.folder-lime-theme .journey-folder-title,
+.folder-lime-theme .journey-folder-footer {
+  color: var(--color-bg-dark);
+}
+
+.folder-lime-theme .journey-folder-footer {
+  border-top: 1px solid rgba(11, 30, 13, 0.18);
+}
+
+/* 3. PURE WHITE FOLDER */
+.folder-white-theme {
+  background-color: #ffffff;
+  border: 1px solid rgba(11, 30, 13, 0.06);
+}
+
+.folder-white-theme .journey-folder-tab {
+  background-color: #e6eee0;
+}
+
+.folder-white-theme .journey-folder-header,
+.folder-white-theme .journey-folder-sub {
+  color: rgba(11, 30, 13, 0.7);
+}
+
+.folder-white-theme .journey-folder-title,
+.folder-white-theme .journey-folder-footer {
+  color: var(--color-bg-dark);
+}
+
+.folder-white-theme .journey-folder-footer {
+  border-top: 1px solid rgba(11, 30, 13, 0.08);
+}
+
 
 /* --------------------------------------------------------------------------
-   4. RESPONSIVE DESIGN
+   3. INLINE EXPANDABLE DETAILS PANEL (MATCHING REFERENCE IMAGE)
    -------------------------------------------------------------------------- */
-@media (max-width: 640px) {
-  .ab-mini-folder-section {
-    padding: 60px 0 40px;
-    gap: 32px;
-  }
+.journey-expanded-panel {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 28px;
+  border: 1px solid transparent;
+  box-shadow: none;
+  overflow: hidden;
+  text-align: left;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+}
 
-  .mini-folder-card-wrap {
+.journey-expanded-panel.is-open {
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(11, 30, 13, 0.08);
+}
+
+.journey-panel-content {
+  padding: 44px 52px;
+}
+
+.panel-category-tag {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: #76a817;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.panel-main-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 900;
+  color: var(--color-bg-dark);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin: 0 0 32px 0;
+  line-height: 1;
+}
+
+/* Rows List */
+.journey-rows-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.journey-row-item {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  align-items: center;
+  padding: 22px 0;
+  border-top: 1px solid rgba(11, 30, 13, 0.08);
+}
+
+.row-date-badge {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #76a817;
+}
+
+.row-desc-text {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-bg-dark);
+  line-height: 1.5;
+}
+
+/* Responsiveness */
+@media (max-width: 960px) {
+  .ab-folders-row-grid {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .journey-folder-card {
     width: 100%;
-    max-width: 280px;
+    max-width: 320px;
   }
 
-  .note-card-window {
-    max-width: 100%;
+  .journey-panel-content {
+    padding: 32px 24px;
   }
-
-  .modal-timeline-wrap {
-    margin-left: 4px;
-    padding-left: 18px;
+  
+  .journey-row-item {
+    grid-template-columns: 100px 1fr;
+    gap: 12px;
   }
+}
 
-  .modal-timeline-step::before {
-    left: -24px;
+@media (max-width: 480px) {
+  .journey-row-item {
+    grid-template-columns: 1fr;
+    gap: 6px;
   }
 }

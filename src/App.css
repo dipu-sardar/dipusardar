@@ -98,13 +98,13 @@
   font-family: var(--font-sans);
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--color-text-secondary);
+  color: var(--color-text-primary);
   text-align: left;
   transition: var(--transition-fast);
 }
 
 .footer-link-col button:hover {
-  color: var(--color-accent-orange);
+  color: var(--color-bg-dark);
   transform: translateX(2px);
 }
 
