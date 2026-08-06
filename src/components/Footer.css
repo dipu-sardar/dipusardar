@@ -1,0 +1,337 @@
+/* Vibrant Lime Footer Section Styling */
+
+.lime-footer-container {
+  margin-top: 60px;
+  /* Merge bottom and both sides flush with container edges */
+  margin-left: -24px;
+  margin-right: -24px;
+  margin-bottom: -24px;
+  position: relative;
+  background-color: #bdf300; /* Vibrant Electric Lime Green */
+  color: #0b1e0d;
+  /* Only top-left and top-right corners are curved */
+  border-radius: 36px 36px 0 0;
+  padding: 56px 48px 0px 48px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.04);
+  transition: var(--transition-smooth);
+}
+
+/* Center Backdrop Circle Graphic */
+.lime-footer-circle-backdrop {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  width: 520px;
+  height: 520px;
+  background-color: rgba(0, 0, 0, 0.045);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Top 3-Column Section */
+.lime-footer-top {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+/* Column General */
+.lime-footer-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.lime-footer-label {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: rgba(11, 30, 13, 0.65);
+  margin-bottom: 16px;
+  text-transform: capitalize;
+}
+
+/* Left Column: Contact */
+.lime-footer-contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.lime-footer-email,
+.lime-footer-phone {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #0b1e0d;
+  text-decoration: none;
+  transition: var(--transition-fast);
+  word-break: break-word;
+}
+
+.lime-footer-email:hover,
+.lime-footer-phone:hover {
+  opacity: 0.75;
+  transform: translateX(3px);
+}
+
+/* Center Column: CTA & Button */
+.lime-footer-col-center {
+  align-items: center;
+  text-align: center;
+  padding: 0 12px;
+}
+
+.lime-footer-cta-title {
+  font-family: var(--font-heading);
+  font-size: 1.65rem;
+  font-weight: 800;
+  line-height: 1.25;
+  color: #0b1e0d;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+}
+
+.lime-footer-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #111827; /* Dark Slate / Royal Black */
+  color: #ffffff;
+  padding: 14px 28px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(17, 24, 39, 0.25);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.lime-footer-btn:hover {
+  background-color: #1d4ed8; /* Vibrant Royal Blue Accent */
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(29, 78, 216, 0.35);
+}
+
+.lime-footer-btn-icon {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.3s ease;
+}
+
+.lime-footer-btn:hover .lime-footer-btn-icon {
+  transform: translateX(3px);
+}
+
+/* Right Column: Location & Domain */
+.lime-footer-col-right {
+  align-items: flex-end;
+  text-align: right;
+  gap: 24px;
+}
+
+.lime-footer-location-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.lime-footer-location-title {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: rgba(11, 30, 13, 0.65);
+}
+
+.lime-footer-location-text {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0b1e0d;
+  line-height: 1.35;
+}
+
+/* Middle Bar: Copyright, Links & Socials */
+.lime-footer-mid {
+  position: relative;
+  z-index: 2;
+  margin-top: 64px;
+  padding-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: rgba(11, 30, 13, 0.85);
+  font-weight: 600;
+}
+
+.lime-footer-copyright {
+  font-family: var(--font-sans);
+  font-size: 0.825rem;
+  font-weight: 600;
+}
+
+.lime-footer-terms {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lime-legal-link {
+  font-family: var(--font-sans);
+  font-size: 0.825rem;
+  font-weight: 700;
+  color: #0b1e0d;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.lime-legal-link:hover {
+  text-decoration: underline;
+  opacity: 0.7;
+}
+
+.lime-legal-sep {
+  opacity: 0.4;
+}
+
+/* Social Icons */
+.lime-footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.lime-social-link {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: #0b1e0d;
+  transition: all 0.25s ease;
+}
+
+.lime-social-link svg {
+  width: 18px;
+  height: 18px;
+}
+
+.lime-social-link:hover {
+  background-color: #0b1e0d;
+  color: #bdf300;
+  transform: translateY(-2px);
+}
+
+/* Massive Display Typography Banner */
+.lime-footer-banner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  margin-top: 12px;
+  margin-bottom: -10px;
+  text-align: center;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.lime-footer-banner-text {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: clamp(2rem, 7.6vw, 8.4rem);
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  color: #0b1e0d;
+  text-transform: uppercase;
+  white-space: nowrap;
+  user-select: none;
+  width: 100%;
+  display: block;
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+  .lime-footer-container {
+    margin-left: -16px;
+    margin-right: -16px;
+    margin-bottom: -16px;
+    border-radius: 28px 28px 0 0;
+    padding: 44px 24px 0px 24px;
+  }
+
+  .lime-footer-top {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 36px;
+  }
+
+  .lime-footer-col-left {
+    grid-column: 1 / 2;
+  }
+
+  .lime-footer-col-right {
+    grid-column: 2 / 3;
+  }
+
+  .lime-footer-col-center {
+    grid-column: 1 / -1;
+    order: 3;
+    margin-top: 12px;
+  }
+
+  .lime-footer-mid {
+    margin-top: 48px;
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .lime-footer-container {
+    padding: 36px 16px 0px 16px;
+  }
+
+  .lime-footer-top {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 28px;
+  }
+
+  .lime-footer-col-left,
+  .lime-footer-col-right,
+  .lime-footer-col-center {
+    align-items: center;
+    text-align: center;
+    grid-column: auto;
+  }
+
+  .lime-footer-cta-title {
+    font-size: 1.35rem;
+  }
+
+  .lime-footer-email,
+  .lime-footer-phone {
+    font-size: 1rem;
+  }
+
+  .lime-footer-banner {
+    margin-bottom: -6px;
+  }
+
+  .lime-footer-banner-text {
+    font-size: clamp(1.8rem, 9.5vw, 3.8rem);
+  }
+}

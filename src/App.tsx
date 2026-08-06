@@ -9,6 +9,7 @@ import { ContactSection } from './components/ContactSection';
 import { About } from './components/About';
 import { MouseClickEffect } from './components/MouseClickEffect';
 import { ProjectModal } from './components/ProjectModal';
+import { Footer } from './components/Footer';
 import type { Product, CartItem } from './types';
 import './App.css';
 
@@ -122,38 +123,11 @@ function App() {
       {/* Aesthetic Contact Section */}
       <ContactSection />
 
-      {/* Elegant Editorial Branding Footer */}
-      <footer className="editorial-footer">
-        <div className="footer-line"></div>
-        <div className="footer-content">
-          <div className="footer-brand">
-            <h2 className="footer-logo">DIPU SARDAR</h2>
-            <p className="footer-tagline">Machine Learning. Interface Design.</p>
-          </div>
-          <div className="footer-links">
-            <div className="footer-link-col">
-              <h4>EXPERTISE</h4>
-              <button onClick={() => handleScrollToSection('projects')}>Computer Vision</button>
-              <button onClick={() => handleScrollToSection('projects')}>Generative Systems</button>
-              <button onClick={() => handleScrollToSection('projects')}>Autonomous Edge</button>
-            </div>
-            <div className="footer-link-col">
-              <h4>CONNECT</h4>
-              <button onClick={() => handleScrollToSection('contact')}>Contact Us</button>
-              <button onClick={() => window.open('https://github.com/dipu-sardar', '_blank')}>GitHub</button>
-              <button onClick={() => window.open('https://www.linkedin.com/in/dipu-sardar-1b6a07321/', '_blank')}>LinkedIn</button>
-            </div>
-            <div className="footer-link-col">
-              <h4>LEGAL</h4>
-              <button onClick={() => showToast('Privacy Policy: All works belong to corresponding research labs and partners.')}>Privacy Policy</button>
-              <button onClick={() => showToast('Terms of Service: Feel free to clone this open-source portfolio.')}>Terms of Service</button>
-            </div>
-          </div>
-        </div>
-        <div className="footer-bottom">
-          <p>© {new Date().getFullYear()} DIPU SARDAR. All rights reserved. Developed as an industry-standard portfolio layout.</p>
-        </div>
-      </footer>
+      {/* Vibrant Lime Reference Design Footer */}
+      <Footer
+        onNavClick={handleScrollToSection}
+        onShowToast={showToast}
+      />
 
       {/* Overlays / Modal Windows */}
       <CartDrawer
