@@ -7,6 +7,7 @@ import { ContactModal } from './components/ContactModal';
 import { SearchModal } from './components/SearchModal';
 import { ContactSection } from './components/ContactSection';
 import { About } from './components/About';
+import { Skills } from './components/Skills';
 import { MouseClickEffect } from './components/MouseClickEffect';
 import { ProjectModal } from './components/ProjectModal';
 import { Footer } from './components/Footer';
@@ -77,7 +78,7 @@ function App() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
-    if (['projects', 'contact', 'about'].includes(sectionId)) {
+    if (['projects', 'contact', 'about', 'skills'].includes(sectionId)) {
       const element = document.getElementById(sectionId);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
@@ -119,6 +120,9 @@ function App() {
 
       {/* About Section */}
       <About />
+
+      {/* Skills / Tech Stack Section */}
+      <Skills />
 
       {/* Aesthetic Contact Section */}
       <ContactSection />
