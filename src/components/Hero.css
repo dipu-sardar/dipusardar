@@ -121,6 +121,7 @@
   height: 100%;
   width: 100%;
   box-shadow: var(--shadow-sm);
+  --sfx-round: var(--radius-xl);
   transform: var(--sfx-tf, translateY(0)) skewY(var(--sfx-skew, 0deg));
 }
 

@@ -30,7 +30,7 @@
 .scroll-fx-ready [data-sfx="scale"] { transform: scale(0.93); }
 .scroll-fx-ready [data-sfx="blur"]  { transform: translate3d(0, 22px, 0); filter: blur(12px); }
 .scroll-fx-ready [data-sfx="fade"]  { /* opacity only */ }
-.scroll-fx-ready [data-sfx="clip"]  { clip-path: inset(0 0 100% 0); }
+.scroll-fx-ready [data-sfx="clip"]  { clip-path: inset(0 0 100% 0 round var(--sfx-round, 0px)); }
 
 /* Only variants that set a transform get it cleared — leaves `transform`
    free on fade/clip elements for the parallax loop to own. */
@@ -44,7 +44,9 @@
 .scroll-fx-ready [data-sfx].sfx-in {
   opacity: 1;
   filter: none;
-  clip-path: inset(0 0 0 0);
+}
+.scroll-fx-ready [data-sfx="clip"].sfx-in {
+  clip-path: inset(0 0 0 0 round var(--sfx-round, 0px));
 }
 
 /* ── Word-mask headings ───────────────────────────────────────────── */
