@@ -30,8 +30,8 @@
   gap: 8px;
   padding: 6px 16px;
   border-radius: 50px;
-  background: rgba(188, 240, 26, 0.15);
-  border: 1px solid rgba(188, 240, 26, 0.3);
+  background: rgba(122, 145, 135, 0.15);
+  border: 1px solid rgba(122, 145, 135, 0.3);
   color: var(--color-accent-lime);
   font-family: var(--font-heading);
   font-size: 0.75rem;
@@ -204,7 +204,7 @@
 
 .folder-lime-theme .journey-folder-header,
 .folder-lime-theme .journey-folder-sub {
-  color: rgba(11, 30, 13, 0.8);
+  color: rgba(28, 63, 57, 0.8);
 }
 
 .folder-lime-theme .journey-folder-title,
@@ -213,22 +213,22 @@
 }
 
 .folder-lime-theme .journey-folder-footer {
-  border-top: 1px solid rgba(11, 30, 13, 0.18);
+  border-top: 1px solid rgba(28, 63, 57, 0.18);
 }
 
 /* 3. PURE WHITE FOLDER */
 .folder-white-theme {
   background-color: #ffffff;
-  border: 1px solid rgba(11, 30, 13, 0.06);
+  border: 1px solid rgba(28, 63, 57, 0.06);
 }
 
 .folder-white-theme .journey-folder-tab {
-  background-color: #e6eee0;
+  background-color: #e6ede3;
 }
 
 .folder-white-theme .journey-folder-header,
 .folder-white-theme .journey-folder-sub {
-  color: rgba(11, 30, 13, 0.7);
+  color: rgba(28, 63, 57, 0.7);
 }
 
 .folder-white-theme .journey-folder-title,
@@ -237,7 +237,7 @@
 }
 
 .folder-white-theme .journey-folder-footer {
-  border-top: 1px solid rgba(11, 30, 13, 0.08);
+  border-top: 1px solid rgba(28, 63, 57, 0.08);
 }
 
 
@@ -259,7 +259,7 @@
 
 .journey-expanded-panel.is-open {
   box-shadow: 0 16px 45px rgba(0, 0, 0, 0.06);
-  border: 1px solid rgba(11, 30, 13, 0.08);
+  border: 1px solid rgba(28, 63, 57, 0.08);
 }
 
 .journey-panel-content {
@@ -271,7 +271,7 @@
   font-size: 0.75rem;
   font-weight: 800;
   letter-spacing: 0.15em;
-  color: #76a817;
+  color: #1f4a43;
   text-transform: uppercase;
   display: block;
   margin-bottom: 8px;
@@ -299,14 +299,14 @@
   grid-template-columns: 140px 1fr;
   align-items: center;
   padding: 22px 0;
-  border-top: 1px solid rgba(11, 30, 13, 0.08);
+  border-top: 1px solid rgba(28, 63, 57, 0.08);
 }
 
 .row-date-badge {
   font-family: var(--font-sans);
   font-size: 0.95rem;
   font-weight: 700;
-  color: #76a817;
+  color: #1f4a43;
 }
 
 .row-desc-text {

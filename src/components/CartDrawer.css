@@ -4,7 +4,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(15, 15, 17, 0.45);
+  background-color: rgba(21, 51, 45, 0.45);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   z-index: 1000;
@@ -132,7 +132,7 @@
 .empty-cart-shop-btn:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-sm);
-  background-color: #212128;
+  background-color: #1f4a43;
 }
 
 /* Cart Items List */
@@ -323,7 +323,7 @@
 }
 
 .checkout-btn:hover {
-  background-color: #212128;
+  background-color: #1f4a43;
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }

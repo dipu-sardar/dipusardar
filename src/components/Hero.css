@@ -12,8 +12,10 @@
   height: calc(100vh - 180px);
 }
 
-/* Left Title Card */
+/* Left Title Card — keeps the original ink-black + lime-green palette */
 .hero-title-card-simple {
+  --color-bg-dark: #111111;
+  --color-accent-lime: #a3e635;
   background-color: var(--color-bg-dark);
   border-radius: var(--radius-xl);
   padding: 56px;
@@ -92,10 +94,10 @@
 }
 
 .hero-btn.primary-btn:hover {
-  background-color: #a3db10;
-  border-color: #a3db10;
+  background-color: #b6f050;
+  border-color: #b6f050;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(188, 240, 26, 0.3);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 .hero-btn.secondary-btn {
@@ -258,7 +260,7 @@
 .resume-download-btn:hover {
   background-color: var(--color-accent-orange);
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
 }
 
 .resume-close-btn {
@@ -285,7 +287,7 @@
 .resume-pdf-container {
   flex: 1;
   overflow: hidden;
-  background-color: #f0f0f0;
+  background-color: #e6ede3;
 }
 
 .resume-pdf-iframe {
