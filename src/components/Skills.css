@@ -93,11 +93,19 @@
   border-radius: var(--radius-md);
   background: var(--color-bg-page);
   border: 1px solid var(--color-border);
-  transition: var(--transition-smooth);
+  transform:
+    var(--sfx-tf, translateY(0))
+    translateY(var(--hover-lift, 0px))
+    skewY(var(--sfx-skew, 0deg));
+  transition:
+    --hover-lift 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.4s ease,
+    box-shadow 0.4s ease,
+    background 0.4s ease;
 }
 
 .skill-card:hover {
-  transform: translateY(-4px);
+  --hover-lift: -4px;
   border-color: color-mix(in srgb, var(--skill-color) 45%, transparent);
   box-shadow: var(--shadow-md);
   background: var(--color-bg-card);
