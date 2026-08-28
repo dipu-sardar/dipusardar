@@ -33,7 +33,8 @@ const REVEAL_GROUPS: RevealGroup[] = [
     variant: 'up',
     stagger: 90,
   },
-  { container: '.hero-grid-simple', items: '.hero-image-card-simple', variant: 'clip' },
+  // NB: the hero photo is deliberately NOT revealed here — it's the LCP
+  // element and must paint immediately on load (it still gets parallax).
 
   // ── Projects ──
   { container: '.projects-intro', items: '.projects-eyebrow, .projects-lede', variant: 'up', stagger: 110 },
@@ -216,6 +217,32 @@ export const ScrollFX: React.FC = () => {
       { threshold: 0.2, rootMargin: '0px 0px -10% 0px' }
     );
     headings.forEach((h) => wordsIO.observe(h));
+
+    /* Reveal whatever is already on-screen right now instead of waiting on
+       the async observers — which lag a busy first mount and make
+       above-the-fold content crawl in. Two rAFs so the hidden state
+       paints once and the entrance transition still plays. */
+    requestAnimationFrame(() =>
+      requestAnimationFrame(() => {
+        const vh = window.innerHeight;
+        const onScreen = (el: Element) => {
+          const r = el.getBoundingClientRect();
+          return r.top < vh * 0.9 && r.bottom > 0;
+        };
+        tagged.forEach((el) => {
+          if (!el.classList.contains('sfx-in') && onScreen(el)) {
+            el.classList.add('sfx-in');
+            revealIO.unobserve(el);
+          }
+        });
+        headings.forEach((h) => {
+          if (!h.classList.contains('sfx-words-in') && onScreen(h)) {
+            h.classList.add('sfx-words-in');
+            wordsIO.unobserve(h);
+          }
+        });
+      })
+    );
 
     const fallback = window.setTimeout(() => {
       tagged.forEach((el) => el.classList.add('sfx-in'));

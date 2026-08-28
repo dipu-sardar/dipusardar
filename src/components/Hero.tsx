@@ -46,7 +46,13 @@ export const Hero: React.FC = () => {
 
           {/* Right Side: One Picture */}
           <div className="hero-image-card-simple">
-            <img src={heroImg} alt="Dipu Sardar Portfolio Banner" className="hero-single-img" />
+            <img
+              src={heroImg}
+              alt="Dipu Sardar Portfolio Banner"
+              className="hero-single-img"
+              fetchPriority="high"
+              decoding="async"
+            />
           </div>
         </div>
       </section>
