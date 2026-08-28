@@ -1,0 +1,81 @@
+/* ══════════════════════════════════════════════════════════════════════
+   ScrollFX — site-wide scroll reveal system + scroll progress bar
+   Base (hidden) styles only apply once JS has added `.scroll-fx-ready`,
+   so the site degrades gracefully if the script never runs.
+   ══════════════════════════════════════════════════════════════════════ */
+
+.scroll-fx-ready [data-sfx] {
+  opacity: 0;
+  transform: translate3d(0, 30px, 0);
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--sfx-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.scroll-fx-ready [data-sfx="fade"] {
+  transform: none;
+}
+
+.scroll-fx-ready [data-sfx="left"] {
+  transform: translate3d(-42px, 0, 0);
+}
+
+.scroll-fx-ready [data-sfx="right"] {
+  transform: translate3d(42px, 0, 0);
+}
+
+.scroll-fx-ready [data-sfx="scale"] {
+  transform: scale(0.94);
+}
+
+.scroll-fx-ready [data-sfx="blur"] {
+  filter: blur(10px);
+  transform: translate3d(0, 20px, 0);
+}
+
+/* Revealed state */
+.scroll-fx-ready [data-sfx].sfx-in {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+.scroll-fx-ready [data-sfx].sfx-in {
+  will-change: auto;
+}
+
+/* ── Scroll progress bar ──────────────────────────────────────────── */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 9998;
+  background: linear-gradient(
+    90deg,
+    var(--color-accent-orange),
+    #e08a5c
+  );
+  transform: scaleX(var(--scroll-progress, 0));
+  transform-origin: 0 50%;
+  transition: transform 0.1s linear;
+  pointer-events: none;
+}
+
+/* ── Respect reduced-motion: show everything, no transforms ───────── */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-fx-ready [data-sfx] {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+
+  .scroll-progress {
+    transition: none;
+  }
+}

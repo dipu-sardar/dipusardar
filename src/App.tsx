@@ -11,6 +11,7 @@ import { Skills } from './components/Skills';
 import { MouseClickEffect } from './components/MouseClickEffect';
 import { ProjectModal } from './components/ProjectModal';
 import { Footer } from './components/Footer';
+import { ScrollFX } from './components/ScrollFX';
 import type { Product, CartItem } from './types';
 import './App.css';
 
@@ -94,6 +95,7 @@ function App() {
   return (
     <>
       <MouseClickEffect />
+      <ScrollFX />
       {/* Toast Notification */}
       {toastMessage && (
         <div className="toast-notification fade-in">
