@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Product } from '../types';
-import { Eye, ExternalLink } from 'lucide-react';
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import './ProductCatalog.css';
 
 // Import local assets
@@ -77,128 +77,119 @@ Successfully deployed on quadcopters for automated search-and-rescue and technic
   }
 ];
 
-export const ProductCatalog: React.FC<ProductCatalogProps> = ({
-  onSelectProduct
-}) => {
-  return (
-    <section className="product-catalog-section" id="projects">
-      <div className="catalog-header">
-        <h2 className="catalog-subtitle">SELECTED WORK</h2>
-        <h1 className="catalog-title">FEATURED PROJECTS</h1>
-        <p className="catalog-intro">
-          Explore our latest collection of deep learning architectures, generative interfaces, and technical designs, bridging logic and interaction.
-        </p>
-      </div>
+// Short hand-drawn badge caption per project (mirrors the reference sticker)
+const BADGE_CAPTIONS: Record<string, string> = {
+  'prod-1': 'Deadline slayer & student-brain whisperer',
+  'prod-2': 'Pixel alchemist & wallpaper vending machine',
+  'prod-3': 'Sees obstacles before the drone does'
+};
 
-      <div className="product-grid">
-        {PRODUCTS.map((product) => {
+const GithubGlyph = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+    <path d="M9 18c-4.51 2-5-2-7-2" />
+  </svg>
+);
+
+export const ProductCatalog: React.FC<ProductCatalogProps> = ({ onSelectProduct }) => {
+  return (
+    <section className="projects-section" id="projects">
+      <header className="projects-intro">
+        <span className="projects-eyebrow">Selected Work</span>
+        <h2 className="projects-heading">
+          Builds, prototypes, and the things I&rsquo;ve actually shipped.
+        </h2>
+        <p className="projects-lede">
+          Every project starts from a real problem &mdash; not a template. Here are a few
+          I&rsquo;ve taken from a blank file to something people use.
+        </p>
+      </header>
+
+      <div className="projects-rows">
+        {PRODUCTS.map((product, index) => {
+          const flipped = index % 2 === 1;
+          const number = String(index + 1).padStart(2, '0');
+
           return (
-            <div 
-              key={product.id} 
-              className="product-card"
-              onClick={() => onSelectProduct(product)}
-              style={{ cursor: 'pointer' }}
+            <article
+              key={product.id}
+              className={`proj-row${flipped ? ' proj-row--flip' : ''}`}
             >
-              <div className="product-image-wrapper">
-                {product.video ? (
-                  <video 
-                    src={product.video} 
-                    autoPlay 
-                    loop 
-                    muted 
-                    playsInline 
-                    className="product-image"
-                    style={{ objectFit: 'cover', width: '100%', height: '100%' }}
-                  />
-                ) : (
-                  <img src={product.image} alt={product.name} className="product-image" />
-                )}
-                <div className="product-actions-overlay">
-                  <button 
-                    className="product-action-btn view-details-btn"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      onSelectProduct(product);
-                    }}
-                    title="View Details"
-                    aria-label="View Project Details"
+              {/* ── Copy column ─────────────────────────────── */}
+              <div className="proj-copy">
+                <span className="proj-kicker">
+                  <span className="proj-kicker-num">{number}</span>
+                  <span className="proj-kicker-dash" aria-hidden="true" />
+                  {product.category}
+                </span>
+
+                <h3 className="proj-headline">{product.name}</h3>
+
+                <p className="proj-body">{product.description}</p>
+
+                <div className="proj-actions">
+                  <button
+                    type="button"
+                    className="proj-cta"
+                    onClick={() => onSelectProduct(product)}
                   >
-                    <Eye size={18} />
+                    View Project
+                    <ArrowRight size={17} strokeWidth={2.4} />
                   </button>
+
                   {product.liveLink && (
-                    <a 
+                    <a
                       href={product.liveLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="product-action-btn launch-app-btn"
-                      onClick={(e) => e.stopPropagation()}
-                      title="Launch Live App"
-                      aria-label="Launch Live App"
+                      className="proj-textlink"
                     >
-                      <ExternalLink size={18} />
+                      Live <ArrowUpRight size={14} strokeWidth={2.4} />
                     </a>
                   )}
                   {product.githubLink && (
-                    <a 
+                    <a
                       href={product.githubLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="product-action-btn code-repo-btn"
-                      onClick={(e) => e.stopPropagation()}
-                      title="View GitHub Code"
-                      aria-label="View GitHub Code"
+                      className="proj-textlink"
                     >
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: '18px', height: '18px' }}><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" /><path d="M9 18c-4.51 2-5-2-7-2" /></svg>
+                      <GithubGlyph />
+                      Code
                     </a>
                   )}
                 </div>
               </div>
-              <div className="product-info">
-                <span className="product-category">{product.category}</span>
-                <div className="product-title-row">
-                  <h3 className="product-name">{product.name}</h3>
-                </div>
-                <p className="product-desc">{product.description}</p>
-                
-                {/* Direct Action Buttons at Bottom */}
-                <div className="project-card-actions">
-                  <button 
-                    className="project-card-btn details-btn" 
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      onSelectProduct(product);
-                    }}
-                  >
-                    <Eye size={14} />
-                    <span>DETAILS</span>
-                  </button>
-                  {product.liveLink && (
-                    <a 
-                      href={product.liveLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="project-card-btn live-btn"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      <ExternalLink size={14} />
-                      <span>LIVE</span>
-                    </a>
+
+              {/* ── Visual column ───────────────────────────── */}
+              <div className="proj-visual">
+                <div className="proj-stripes" aria-hidden="true" />
+
+                <button
+                  type="button"
+                  className="proj-frame"
+                  onClick={() => onSelectProduct(product)}
+                  aria-label={`Open ${product.name} case study`}
+                >
+                  {product.video ? (
+                    <video
+                      className="proj-media"
+                      src={product.video}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                    />
+                  ) : (
+                    <img className="proj-media" src={product.image} alt={product.name} />
                   )}
-                  {product.githubLink && (
-                    <a 
-                      href={product.githubLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="project-card-btn github-btn"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: '14px', height: '14px' }}><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" /><path d="M9 18c-4.51 2-5-2-7-2" /></svg>
-                      <span>CODE</span>
-                    </a>
-                  )}
+                </button>
+
+                <div className="proj-badge" aria-hidden="true">
+                  <span className="proj-badge-text">{BADGE_CAPTIONS[product.id]}</span>
                 </div>
               </div>
-            </div>
+            </article>
           );
         })}
       </div>

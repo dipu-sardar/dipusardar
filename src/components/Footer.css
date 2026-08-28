@@ -1,4 +1,4 @@
-/* Vibrant Lime Footer Section Styling */
+/* Bold Monochrome Footer Section Styling */
 
 .lime-footer-container {
   margin-top: 60px;
@@ -7,8 +7,8 @@
   margin-right: -24px;
   margin-bottom: -24px;
   position: relative;
-  background-color: #bdf300; /* Vibrant Electric Lime Green */
-  color: #0b1e0d;
+  background-color: #15332d; /* Ink Black */
+  color: #ffffff;
   /* Only top-left and top-right corners are curved */
   border-radius: 36px 36px 0 0;
   padding: 56px 48px 0px 48px;
@@ -28,7 +28,7 @@
   transform: translate(-50%, -60%);
   width: 520px;
   height: 520px;
-  background-color: rgba(0, 0, 0, 0.045);
+  background-color: rgba(255, 255, 255, 0.05);
   border-radius: 50%;
   pointer-events: none;
   z-index: 1;
@@ -54,7 +54,7 @@
   font-family: var(--font-sans);
   font-size: 0.85rem;
   font-weight: 700;
-  color: rgba(11, 30, 13, 0.65);
+  color: rgba(255, 255, 255, 0.65);
   margin-bottom: 16px;
   text-transform: capitalize;
 }
@@ -71,7 +71,7 @@
   font-family: var(--font-heading);
   font-size: 1.1rem;
   font-weight: 800;
-  color: #0b1e0d;
+  color: #ffffff;
   text-decoration: none;
   transition: var(--transition-fast);
   word-break: break-word;
@@ -95,7 +95,7 @@
   font-size: 1.65rem;
   font-weight: 800;
   line-height: 1.25;
-  color: #0b1e0d;
+  color: #ffffff;
   margin-bottom: 24px;
   letter-spacing: -0.02em;
 }
@@ -104,23 +104,23 @@
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  background-color: #111827; /* Dark Slate / Royal Black */
-  color: #ffffff;
+  background-color: #ffffff; /* Pure White pop button */
+  color: #15332d;
   padding: 14px 28px;
   border-radius: var(--radius-pill);
   font-family: var(--font-heading);
   font-size: 0.95rem;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 8px 24px rgba(17, 24, 39, 0.25);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .lime-footer-btn:hover {
-  background-color: #1d4ed8; /* Vibrant Royal Blue Accent */
+  background-color: #c3dac8; /* Card Grey hover */
   transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 12px 30px rgba(29, 78, 216, 0.35);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
 }
 
 .lime-footer-btn-icon {
@@ -150,14 +150,14 @@
   font-family: var(--font-sans);
   font-size: 0.85rem;
   font-weight: 700;
-  color: rgba(11, 30, 13, 0.65);
+  color: rgba(255, 255, 255, 0.65);
 }
 
 .lime-footer-location-text {
   font-family: var(--font-heading);
   font-size: 1rem;
   font-weight: 700;
-  color: #0b1e0d;
+  color: #ffffff;
   line-height: 1.35;
 }
 
@@ -171,7 +171,7 @@
   justify-content: space-between;
   align-items: center;
   font-size: 0.85rem;
-  color: rgba(11, 30, 13, 0.85);
+  color: rgba(255, 255, 255, 0.85);
   font-weight: 600;
 }
 
@@ -191,7 +191,7 @@
   font-family: var(--font-sans);
   font-size: 0.825rem;
   font-weight: 700;
-  color: #0b1e0d;
+  color: #ffffff;
   background: none;
   border: none;
   cursor: pointer;
@@ -221,7 +221,7 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  color: #0b1e0d;
+  color: #ffffff;
   transition: all 0.25s ease;
 }
 
@@ -231,8 +231,8 @@
 }
 
 .lime-social-link:hover {
-  background-color: #0b1e0d;
-  color: #bdf300;
+  background-color: #ffffff;
+  color: #15332d;
   transform: translateY(-2px);
 }
 
@@ -254,7 +254,7 @@
   font-size: clamp(2rem, 7.6vw, 8.4rem);
   line-height: 0.85;
   letter-spacing: -0.04em;
-  color: #0b1e0d;
+  color: #ffffff;
   text-transform: uppercase;
   white-space: nowrap;
   user-select: none;

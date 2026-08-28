@@ -4,7 +4,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(15, 15, 17, 0.45);
+  background-color: rgba(21, 51, 45, 0.45);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   z-index: 1100;
@@ -45,7 +45,7 @@
   position: absolute;
   top: 20px;
   right: 20px;
-  background-color: rgba(15, 15, 17, 0.5);
+  background-color: rgba(21, 51, 45, 0.5);
   color: #fff;
   border-radius: 50%;
   width: 36px;

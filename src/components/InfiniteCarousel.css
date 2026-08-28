@@ -75,7 +75,7 @@
   width: var(--carousel-card-w);
   height: var(--carousel-card-h);
   border-radius: 20px;
-  background: var(--color-bg-dark, #0f0f11);
+  background: var(--color-bg-dark, #15332d);
   box-shadow:
     0 4px 24px rgba(0, 0, 0, 0.18),
     0 1px 0 rgba(255, 255, 255, 0.06) inset;
@@ -104,7 +104,7 @@
 .card-art-bg {
   position: absolute;
   inset: 0;
-  background: var(--card-accent, #e05e35);
+  background: var(--card-accent, #d15c3b);
   opacity: 0.18;
 }
 
@@ -115,7 +115,7 @@
   inset: 0;
   background: radial-gradient(
     ellipse 80% 80% at 50% 60%,
-    color-mix(in srgb, var(--card-accent, #e05e35) 40%, transparent),
+    color-mix(in srgb, var(--card-accent, #d15c3b) 40%, transparent),
     transparent 70%
   );
   z-index: 0;
@@ -139,7 +139,7 @@
   font-size: 3rem;
   line-height: 1;
   color: #fff;
-  filter: drop-shadow(0 0 20px var(--card-accent, #e05e35));
+  filter: drop-shadow(0 0 20px var(--card-accent, #d15c3b));
   transition: transform 0.3s ease;
 }
 
@@ -167,7 +167,7 @@
   justify-content: center;
   gap: 4px;
   padding: 14px 16px 16px;
-  background: var(--color-bg-dark, #0f0f11);
+  background: var(--color-bg-dark, #15332d);
   border-top: 1px solid rgba(255,255,255,0.06);
 }
 
@@ -176,7 +176,7 @@
   font-size: 0.6rem;
   font-weight: 800;
   letter-spacing: 0.12em;
-  color: var(--card-accent, #e05e35);
+  color: var(--card-accent, #d15c3b);
   text-transform: uppercase;
 }
 

@@ -35,14 +35,14 @@ export default async function handler(req: any, res: any) {
       replyTo: cleanEmail,
       subject: `New Portfolio Message from ${cleanName}`,
       html: `
-        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
-          <h2 style="color: #0f0f11; border-bottom: 2px solid #e05e35; padding-bottom: 10px;">New Message Details</h2>
+        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #d8d8d8; border-radius: 8px;">
+          <h2 style="color: #111111; border-bottom: 2px solid #262626; padding-bottom: 10px;">New Message Details</h2>
           <p><strong>Name:</strong> ${cleanName}</p>
           <p><strong>Email:</strong> <a href="mailto:${cleanEmail}">${cleanEmail}</a></p>
-          <div style="margin-top: 20px; padding: 15px; background-color: #f4f4f6; border-radius: 5px; color: #0f0f11; line-height: 1.5; white-space: pre-wrap;">
+          <div style="margin-top: 20px; padding: 15px; background-color: #f7f7f7; border-radius: 5px; color: #111111; line-height: 1.5; white-space: pre-wrap;">
             <strong>Message:</strong><br/>${cleanMessage}
           </div>
-          <p style="font-size: 12px; color: #666; margin-top: 30px;">Sent via Dipu Sardar's Portfolio Contact Form.</p>
+          <p style="font-size: 12px; color: #8c8c8c; margin-top: 30px;">Sent via Dipu Sardar's Portfolio Contact Form.</p>
         </div>
       `,
     });
@@ -53,44 +53,44 @@ export default async function handler(req: any, res: any) {
       to: cleanEmail,
       subject: 'Message Received - Dipu Sardar',
       html: `
-        <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: #0f0f11; padding: 40px 20px; margin: 0; min-height: 100%;">
-          <div style="max-width: 500px; margin: 0 auto; background-color: #f4f4f6; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.5); border-top: 6px solid #e05e35;">
-            
+        <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: #111111; padding: 40px 20px; margin: 0; min-height: 100%;">
+          <div style="max-width: 500px; margin: 0 auto; background-color: #f7f7f7; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.5); border-top: 6px solid #262626;">
+
             <!-- Header Section -->
-            <div style="background-color: #0f0f11; padding: 30px; text-align: center; border-bottom: 1px solid #1f1f23;">
-              <h1 style="color: #f4f4f6; margin: 0; font-size: 24px; font-weight: 700; letter-spacing: 1px;">DIPU SARDAR</h1>
-              <p style="color: #e05e35; margin: 5px 0 0 0; font-size: 12px; letter-spacing: 2px; text-transform: uppercase;">Machine Learning & Interface Design</p>
+            <div style="background-color: #111111; padding: 30px; text-align: center; border-bottom: 1px solid #262626;">
+              <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 700; letter-spacing: 1px;">DIPU SARDAR</h1>
+              <p style="color: #8c8c8c; margin: 5px 0 0 0; font-size: 12px; letter-spacing: 2px; text-transform: uppercase;">Machine Learning & Interface Design</p>
             </div>
-            
+
             <!-- Body Content -->
-            <div style="padding: 30px; color: #0f0f11;">
+            <div style="padding: 30px; color: #111111;">
               <p style="font-size: 16px; font-weight: 600; margin-top: 0;">Hello ${cleanName},</p>
-              
-              <p style="font-size: 15px; line-height: 1.6; color: #333;">
-                Thank you for reaching out through my portfolio. I have received your message and will get back to you shortly at <a href="mailto:${cleanEmail}" style="color: #e05e35; text-decoration: none; font-weight: 500;">${cleanEmail}</a>.
+
+              <p style="font-size: 15px; line-height: 1.6; color: #262626;">
+                Thank you for reaching out through my portfolio. I have received your message and will get back to you shortly at <a href="mailto:${cleanEmail}" style="color: #262626; text-decoration: none; font-weight: 500;">${cleanEmail}</a>.
               </p>
-              
+
               <!-- Message Quote -->
-              <div style="margin: 25px 0; padding: 15px; background-color: #eaeaee; border-left: 4px solid #e05e35; border-radius: 4px; font-style: italic; color: #555; font-size: 14px;">
+              <div style="margin: 25px 0; padding: 15px; background-color: #e8e8e8; border-left: 4px solid #262626; border-radius: 4px; font-style: italic; color: #262626; font-size: 14px;">
                 "${cleanMessage.length > 100 ? cleanMessage.slice(0, 100) + '...' : cleanMessage}"
               </div>
-              
-              <p style="font-size: 14px; line-height: 1.5; color: #666; margin-bottom: 0;">
+
+              <p style="font-size: 14px; line-height: 1.5; color: #8c8c8c; margin-bottom: 0;">
                 Best regards,<br/>
                 <strong>Dipu Sardar</strong><br/>
                 <span style="font-size: 12px;">Machine Learning Engineer</span>
               </p>
             </div>
-            
+
             <!-- Footer -->
-            <div style="background-color: #eaeaee; padding: 15px 30px; text-align: center; font-size: 11px; color: #888; border-top: 1px solid #ddd;">
+            <div style="background-color: #e8e8e8; padding: 15px 30px; text-align: center; font-size: 11px; color: #8c8c8c; border-top: 1px solid #d8d8d8;">
               <p style="margin: 0;">© ${new Date().getFullYear()} Dipu Sardar. All rights reserved.</p>
               <p style="margin: 5px 0 0 0;">
-                <a href="https://github.com/dipu-sardar" style="color: #e05e35; text-decoration: none; margin: 0 5px;">GitHub</a> | 
-                <a href="https://www.linkedin.com/in/dipu-sardar-1b6a07321/" style="color: #e05e35; text-decoration: none; margin: 0 5px;">LinkedIn</a>
+                <a href="https://github.com/dipu-sardar" style="color: #262626; text-decoration: none; margin: 0 5px;">GitHub</a> |
+                <a href="https://www.linkedin.com/in/dipu-sardar-1b6a07321/" style="color: #262626; text-decoration: none; margin: 0 5px;">LinkedIn</a>
               </p>
             </div>
-            
+
           </div>
         </div>
       `,
